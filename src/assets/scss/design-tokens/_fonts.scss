@@ -1,0 +1,30 @@
+//https://gist.github.com/mrusklon/bc332558d1b01faf6149df7589e3a21d
+$AlssFontPath: '../../assets/fonts/ALSS';
+
+
+@mixin font-face($fontFamily, $fileName, $fontWeight, $fontStyle, $fontPath: $AlssFontPath) {
+    @font-face {
+        font-family: $fontFamily;
+        src: url('#{$fontPath}/#{$fileName}.otf');
+        // src: local('^'),
+        // url('#{$fontPath}/#{$fileName}.eot?#iefix') format('embedded-opentype'),
+        // url('#{$fontPath}/#{$fileName}.woff2?v=#{$FiraSansFontVersion}') format('woff2'),
+        // url('#{$fontPath}/#{$fileName}.woff?v=#{$FiraSansFontVersion}') format('woff'),
+        // url('#{$fontPath}/#{$fileName}.ttf?v=#{$FiraSansFontVersion}') format('truetype');
+        font-weight: $fontWeight;
+        font-style: $fontStyle;
+    }
+}
+
+// Кратенько подключаем нужные шрифты и их варианты
+@include font-face('ALSS', 'ALSSchlangesans', 300, normal);
+@include font-face('ALSS-B', 'ALSSchlangesans-Bold', 300, normal);
+
+//@include font-face($FiraSansFontFamily, 'firasans', 400, normal);
+//@include font-face($FiraSansFontFamily, 'firasansitalic', 400, italic);
+
+//@include font-face($FiraSansFontFamily, 'firasansmedium', 500, normal);
+//@include font-face($FiraSansFontFamily, 'firasansmediumitalic', 500, italic);
+
+//@include font-face($FiraSansFontFamily, 'firasansbold', 700, normal);
+//@include font-face($FiraSansFontFamily, 'firasansbolditalic', 700, italic);

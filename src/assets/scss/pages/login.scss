@@ -1,0 +1,217 @@
+body {
+	font-family: "ALSS";
+	margin: 0;
+	padding: 0;
+}
+:root {
+	font-size: 1.0625em;
+	overflow: hidden;
+}
+
+.logo > img , .waves > img {
+	position: absolute;
+}
+
+.log-field > input, .password-eye > input {
+	height: 2.352941em;
+	width: 94%;
+	border: 1px solid #C3C1CC;
+	border-radius: 0.35294117em;
+	padding-left: 0.82352em;
+	margin-top: 1.46vh; /* 15px для контейнера title_input_info, иначе ? съезжает*/
+}
+
+.authorization > button{
+	font-weight: bold;
+	border: 1px solid #3914AF;
+	line-height: 1.294em;
+	border-radius: 0.588em; /* 10px */
+	width: 32.0846%; /* 197px от 614px*/
+	padding: 0.5em; /* Высота в 40px */
+	margin-bottom: 1.95vh; /* 20px от 17 px */
+	outline: none;
+}
+/* Настройка векторов */
+.logo {
+	position: relative;
+	width: 10.52941176470588em;
+	height: 8.529411764705882em;
+	margin: 1.95vh 0 2.44vh 1.176em;
+}
+.logo > img.blue-light {
+	bottom: 0;
+}
+.logo >  img.green-light {
+	left: 0.5em; /* 8.5px */
+	top: 1em;   /* 17px  */
+	bottom: 0;
+}
+.logo > img.yellow-light {
+	left: 1.025em;
+	top: 1.88235em;
+	bottom: 0;
+}
+.logo > img.red-light {
+	left: 1.5em;
+	top: 2.64705em;
+	bottom: 0;
+}
+.logo > .olimp {
+	left: 2.95em;
+	top: 5.65em;
+}
+
+.logo > .olimp-comment {
+	left: 2.95em;
+	top: 7.5em;
+}
+.waves {
+	flex: 50%;
+	align-items: left;
+}
+
+.login {
+	flex: 50%;
+}
+
+.blue_bold, .green_bold, .yellow_bold, .red_bold {
+	bottom: 0;
+	right: 0;
+}
+
+.blue_bold {
+	z-index: 1;
+}
+.green_bold {
+	z-index: 2;
+}
+.yellow_bold {
+	z-index: 3;
+}
+.red_bold {
+	z-index: 4;
+}
+/* main content */
+.main-login {
+	margin-left: 3.11764em;
+	margin-bottom: 12.89vh;
+	display: flex;
+}
+
+.login > h1 {
+	font-size: 4.11em; /* 70px */
+	font-weight: bold;
+	color: #351BA9;
+	text-align: center;
+	margin: 0 0 1.95vh 0; /* 20px */
+}
+.comment-title {
+	color: #000000;
+	text-align: center;
+	margin-bottom: 5.85vh; /* 60px */
+}
+.log-form {
+	/* border: 1px solid black; */
+	margin: 0 10.625vw 4.98vh  10.625vw;
+}
+.log-field {
+	margin-bottom: 3.9vh; /* 40px между блоками */
+}
+legend{
+	font-size: 0.823529em; /* 14px */
+}
+.password-eye {
+	position: relative;
+}
+.eye {
+	right: 0.4em;
+	top: 1.4em;
+}
+.retina {
+	right: 0.81em;
+	top: 1.64em;
+}
+.radio {
+	font-size: 0.8em;
+	display: flex;
+	/* border: 1px solid black; */
+	align-items: center;
+	justify-content: space-between;
+}
+.check-me {
+	display: flex;
+	align-items: center;
+}
+.checkbox{
+	width: 1.5em;
+	margin: 0 0.7em 0 0;
+	background: linear-gradient(0deg, #3914AF, #3914AF), #FFFFFF;
+	border-radius: 0.3em;
+}
+a.forget-password {
+	text-decoration: none;
+	color: #3914AF;
+	font-size: 0.8235em;
+}
+legend.another-way {
+	line-height: 0.94117em;/* 16px; */
+	margin-bottom: 1.95vh; /* 20px */
+}
+.authorization {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+button.reg-button{
+	color: #3914AF;
+	background-color: white;
+	font-size: 0.9em;
+}
+button.log-button {
+	color: white;
+	background-color: #3914AF;
+}
+.log-with-social {
+	display: flex;
+}
+a.google-a, .git-a{
+	border: none;
+	background-color: none;
+	width: 1.765em;
+	height: 1.765em;
+}
+.google-a {
+	background-image: url(/pic/image_1.svg);
+	margin-right: 1.764em;
+}
+.git-a {
+	background-image: url(/pic//image_2.svg);
+}
+/* Классы для registration */
+.reg-flex-columns{
+	display: flex;
+	margin-bottom: 4.98vh;
+}
+.reg-column-1{
+	flex: 1;
+	margin-right: 1.1764em;
+}
+.reg-column-2{
+	flex:1;
+	margin-left: 1.1764em;
+}
+.container-for-answer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+img.info {
+	position: static;
+}
+
+@media (max-height: 769px) {
+	/* Стили CSS ... */
+	.login > h1 {
+		font-size: 3em;
+	}
+}

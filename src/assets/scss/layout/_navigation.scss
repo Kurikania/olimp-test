@@ -1,0 +1,95 @@
+html {
+	height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+.header {
+    // display: flex;
+    align-items: center;
+    background-color: $blue-header;
+    height: 4em;
+    float: left;
+    width: 87%;
+    flex-direction: row-reverse;
+}
+
+.aside {
+    float: left;
+    width: 13%;
+    min-height: 100vh;
+    height: 100%;
+  	height: auto !important;
+    // background-color:$blue-aside;
+    align-items: center;
+}
+
+ul {
+    padding-inline-start: 0 !important;
+}
+
+.site-nav {
+    list-style-type: none;
+		// margin-top: 3em;
+		font:  16px "ALSS";
+}
+
+.site-nav  > a {
+    margin: 0 5px;
+	  display: block;
+    color: $blue-aside;
+    text-decoration: none;
+    padding: 0.3em 1em;
+    border-radius: 4px;
+    height: 30px;
+}
+.site-nav  > a:hover {
+    font-weight:bold;
+    background: rgba(55, 46, 86, 0.25);
+}
+.fio {
+	padding: 1em 0em 1em 0em;
+  font:  20px "ALSS-B";
+	float: right;
+}
+
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-family:
+    'ALSS-B',
+     Arial,
+     sans-serif;
+  font-size: 20px;
+  color: $white;
+  letter-spacing: 1px;
+  background-color:$blue-aside;
+  height: 4rem;
+  padding-top: 1em;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
+
+.links {
+  padding-top: 15px;
+}
+
+.avatar {
+  padding: 1em;
+	float: right;
+}

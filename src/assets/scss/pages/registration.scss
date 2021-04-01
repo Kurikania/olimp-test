@@ -1,0 +1,157 @@
+.logo {
+	position: relative;
+	width: 10.5em;
+	height: 8.5em;
+	/* border: 1px solid black; */
+	margin: 1.17em 0 1.47em 1.17em;
+}
+img {
+	position: absolute;
+}
+img.info {
+	position: static;
+}
+img.blue_light {
+	bottom: 0;
+
+}
+img.green_light {
+	left: 0.5em; /* 8.5px */
+	top: 1em;   /* 17px  */
+	bottom: 0;
+}
+img.yellow_light {
+	left: 1.025em;
+	top: 1.88235em;
+	bottom: 0;
+}
+img.red_light {
+	left: 1.5em;
+	top: 2.64705em;
+	bottom: 0;
+}
+img.olimp {
+	left: 2.95em;
+	top: 5.65em;
+}
+img.olimp_comment {
+	left: 2.95em;
+	top: 7.5em;
+}
+.main_waves {
+	/* margin-right: 9em; */
+}
+.main {
+	width: 42.63%;
+	/* border: 1px solid black; */
+	margin-left: 3.11764em;
+	margin-bottom: 7.765em;
+}
+.title {
+	font-size: 4.117647058823529em; /* 70px */
+	font-weight: bold;
+	color: #351BA9;
+	text-align: center;
+	margin-bottom: 0.285em; /* 20px от 70px */
+}
+.comment_title {
+	color: #000000;
+	text-align: center;
+	margin-bottom: 3.529em; /* 60px */
+}
+.column_1_2 {
+	display: flex;
+	margin-bottom: 3em;
+}
+.column_1 {
+	flex: 1;
+	/* border: 1px solid black; */
+	margin-right: 1.176470588235294em;
+}
+.title_input_input {
+	margin-bottom: 2.352941em; /* 40px между блоками */
+}
+.title_input {
+	font-size: 0.823529em; /* 14px */
+}
+input {
+	height: 2.352941em;
+	width: 94%;
+	border: 1px solid #C3C1CC;
+	border-radius: 0.35294117em;
+	padding-left: 0.82352em;
+	margin-top: 1.071428em; /* 15px для контейнера title_input_info, иначе ? съезжает*/
+}
+.title_input_info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.column_2 {
+	flex:1;
+	/* border: 1px solid black; */
+	margin-left: 1.176470588235294em;
+}
+.column_3 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+button#reg, #login {
+	font-weight: bold;
+	border: 1px solid #3914AF;
+	line-height: 1.294em;
+	border-radius: 0.588em; /* 10px */
+	width: 32.08469055374593%; /* 197px от 614px*/
+	padding: 0.5em; /* Высота в 40px */
+	margin-bottom: 1.176470588235294em; /* 20px от 17 px */
+}
+#reg {
+	color: white;
+	background-color: #3914AF;
+	font-size: 0.9em;
+}
+#login {
+	color: #3914AF;
+	background-color: white;
+}
+.text {
+	font-size: 0.8235em;/* 14px; */
+	line-height: 0.94117em;/* 16px; */
+	margin-bottom: 1.4285em; /* 20px От 14px */
+}
+.images_buttons {
+	display: flex;
+}
+a.image_1, .image_2 {
+	border: none;
+	background-color: none;
+	width: 1.765em;
+	height: 1.765em;
+}
+.image_1 {
+	background-image: url(/pic/image_1.svg);
+	margin-right: 1.764em;
+}
+.image_2 {
+	background-image: url(/pic/image_2.svg);
+}
+.waves {
+	position: relative;
+}
+.blue_bold {
+	right: 0;
+	bottom: 0;
+}
+.red_bold {
+	right: 0;
+	bottom: 0;
+}
+.yellow_bold {
+	right: 0;
+	bottom: 0;
+}
+.green_bold {
+	right: 0;
+	bottom: 0;
+}

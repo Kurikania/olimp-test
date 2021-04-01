@@ -1,0 +1,16 @@
+/* settings предназначена для общих настроек проекта,
+самой базовой конфигурации. Это может быть набор глобальных переменных:
+Sass-переменных или CSS-переменных */
+$blue: #3bbfce;
+$margin: 16px;
+
+.content-navigation {
+  border-color: $blue;
+  color: darken($blue-aside, 1%);
+}
+
+.border {
+  padding: $margin / 2;
+  margin: $margin / 2;
+  border-color: $blue;
+}
