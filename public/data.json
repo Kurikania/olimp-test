@@ -18,7 +18,8 @@
     "content": "Засверлил нижнюю площадку для Arduino Mega. Тестовое дописывание из профиля Светы",
     "with_picture": false,
     "is_approved": true,
-    "is_published": false
+    "is_published": false,
+    "pictures": ["1.jpg", "2.jpg"]
   },
   {
     "post_id": "k113",
