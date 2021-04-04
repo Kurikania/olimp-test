@@ -1,10 +1,12 @@
 <template lang="html">
-<div>
+<div v-on:keydown.114.70.prevent="noSearch">
 <div class="workbook">
   <div class="tree" >
-       <constructionTree />
+       <constructionTree v-if="nodeClicked == 'k'" @clickTree="clickTree" />
+       <schemaTree  v-else-if="nodeClicked == 's'" @clickTree="clickTree" />
+
   </div>
-  <div class="main">
+  <div class="main" >
     <div class="project-filters" style="display: flex;">
       <div class="filters">
         <span> Записи </span>
@@ -48,6 +50,7 @@ import axios from "axios"
 import { VueEditor } from "vue2-editor";
 import constructionTree from "../components/construcrionTree";
 import managTree from "../components/managTree";
+import schemaTree from "../components/schemaTree";
 
 export default {
   layout: "olimp",
@@ -59,21 +62,27 @@ export default {
         [{ list: "ordered" }, { list: "bullet" }],
         ["image", "code-block"],
       ],
-      posts: []
+      posts: [],
+      nodeClicked: "k",
     };
   },
   components: {
     VueEditor,
     constructionTree,
-    managTree
+    managTree,
+    schemaTree
   },
    methods: {
       async load() {
         const res = await axios.get("/data.json"); // dev
         this.posts = res.data;
       },
-      treeClick(id) {
+      noSearch() {
+        console.log("No search")
+      },
+      clickTree(id) {
         console.log(id)
+        this.nodeClicked = id[0]
       }
    },
   async mounted() {
