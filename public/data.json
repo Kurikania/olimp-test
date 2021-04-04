@@ -199,7 +199,7 @@
   {
     "post_id": "p128",
     "date": "2020-01-27T22:00:00.000Z",
-    "section": "проектирование",
+    "section": "схемотехника",
     "branch": "радиомодуль",
     "author": "Кирилл Бодров",
     "content": "<p><span >А тем временем можно сделать включение омниплатформы при помощи спящего режима и активацию через радиомодуль! Пойду искать статьи на эту тему. <p><span >Список статей:</span></p><ul><li ><a href='http://blog.sci-smart.ru/2014/10/nrf24l01-2.html'><span >Первая</span></a><span > - очень годная. С решённой проблемой энергосбережения. Но в другой задаче и на Ассемблере;</span></li><li ><span >Неплохая </span><a href='http://forum.amperka.ru/threads/nrf24l01-%D0%BF%D0%BE%D0%B1%D0%B5%D0%B6%D0%B4%D0%B0%D0%B5%D0%BC-%D0%BC%D0%BE%D0%B4%D1%83%D0%BB%D1%8C.3205/page-55'><span >тема</span></a><span > на форуме Амперки, но про усовершенствованный модуль nRF24L01+ и не совсем про энергосбережение;</span></li><li ><span >В самом низу первой страницы форума Радиокот есть отличный </span><a href='https://www.radiokot.ru/forum/viewtopic.php?f=21&amp;t=108001'><span >комментарий</span></a><span >, где описано программирование регистров радиомодуля nRF24L01+ на STM32;</span></li><li ><span >Аналогичная пункту выше </span><a href='http://we.easyelectronics.ru/Radio/radiomodul-nrf24l01-bystryy-start.html'><span >статья</span></a><span >, в которой подробно описана работа с регистрами, но на контроллере Atmega8 от Atmel;</span></li></ul>",
