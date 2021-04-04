@@ -121,26 +121,28 @@
 <line x1="419" y1="747" x2="419" y2="808" stroke="#FFA031" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 7"/>
 <line x1="419" y1="923" x2="419" y2="984" stroke="#FFA031" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 7"/>
 <line x1="419" y1="351" x2="419" y2="412" stroke="#FFA031" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"/>
-<line x1="80" y1="74" x2="80" y2="350" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round"/>
-<line x1="80" y1="809" x2="80" y2="922" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round"/>
-<line x1="80" y1="413" x2="80" y2="746" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round"/>
-<line x1="80" y1="985" x2="80" y2="1878" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round"/>
-<circle cx="80" cy="1569" r="2" fill="#FFA031" stroke="#FFA031" stroke-width="2"/>
-<circle cx="80" cy="1657" r="2" fill="#FFA031" stroke="#FFA031" stroke-width="2"/>
-<circle cx="80" cy="1877" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
-<line x1="80" y1="747" x2="80" y2="808" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 7"/>
-<line x1="80" y1="923" x2="80" y2="984" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 7"/>
-<line x1="80" y1="351" x2="80" y2="412" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"/>
-<line x1="80" y1="85" x2="80" y2="243" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round"/>
-<circle cx="80" cy="73" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
-<circle cx="80" cy="249" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
-<circle cx="80" cy="337" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
-<circle cx="80" cy="425" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
-<circle cx="80" cy="513" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
-<circle cx="80" cy="601" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
-<circle cx="80" cy="645" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
-<circle cx="80" cy="689" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
-<circle cx="80" cy="733" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
+
+<line @click="clickTree('k')" x1="80"  y1="74" x2="80" y2="350" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round"/>
+<line @click="clickTree('k')" x1="80" y1="809" x2="80" y2="922" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round"/>
+<line @click="clickTree('k')" x1="80" y1="413" x2="80" y2="746" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round"/>
+<line @click="clickTree('k')" x1="80" y1="985" x2="80" y2="1878" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round"/>
+<circle  @click="clickTree('k')" cx="80" cy="1569" r="2" fill="#FFA031" stroke="#FFA031" stroke-width="2"/>
+<circle  @click="clickTree('k')" cx="80" cy="1657" r="2" fill="#FFA031" stroke="#FFA031" stroke-width="2"/>
+<circle  @click="clickTree('k')" cx="80" cy="1877" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
+<line @click="clickTree('k')" x1="80" y1="747" x2="80" y2="808" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 7"/>
+<line @click="clickTree('k')" x1="80" y1="923" x2="80" y2="984" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 7"/>
+<line @click="clickTree('k')" x1="80" y1="351" x2="80" y2="412" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"/>
+<line @click="clickTree('k')" x1="80" y1="85" x2="80" y2="243" stroke="#FF5F5F" stroke-width="2" stroke-linecap="round"/>
+<circle  @click="clickTree('k')" cx="80" cy="73" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
+<circle  @click="clickTree('k')" cx="80" cy="249" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
+<circle  @click="clickTree('k')" cx="80" cy="337" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
+<circle  @click="clickTree('k')" cx="80" cy="425" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
+<circle  @click="clickTree('k')" cx="80" cy="513" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
+<circle  @click="clickTree('k')" cx="80" cy="601" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
+<circle  @click="clickTree('k')" cx="80" cy="645" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
+<circle  @click="clickTree('k')" cx="80" cy="689" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
+<circle  @click="clickTree('k')" cx="80" cy="733" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
+
 <circle @click="clickTree('s126')" v-scroll-to="'#s126'" cx="80" cy="821" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
 <circle cx="80" cy="1349" r="2" fill="#FF5F5F" stroke="#FF5F5F" stroke-width="2"/>
 

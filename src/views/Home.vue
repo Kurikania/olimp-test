@@ -2,8 +2,8 @@
 <div v-on:keydown.114.70.prevent="noSearch">
 <div class="workbook">
   <div class="tree" >
-       <constructionTree v-if="nodeClicked == 'k'" @clickTree="clickTree" />
-       <schemaTree  v-else-if="nodeClicked == 's'" @clickTree="clickTree" />
+       <constructionTree v-if="nodeClicked[0] == 'k'" @clickTree="clickTree" />
+       <schemaTree  v-else-if="nodeClicked[0] == 's'" @clickTree="clickTree" />
 
   </div>
   <div class="main" >
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="flex-column" id="scroller" style="overflow: auto; height: 80vh">
-      <div class="post flex-column" v-for="(post, index) in posts" :key="index" :id="post.post_id">
+      <div class="post flex-column" :class="{active: nodeClicked == post.id}" v-for="(post, index) in posts" :key="index" :id="post.post_id">
         <div class="post-header">
         <span> {{ post.section }} </span>
         <span> {{ post.branch }} </span>
@@ -45,7 +45,7 @@
 
 <script>
 /* eslint-disable */
-import axios from "axios"
+import axios from "axios";
 // import { mapGetters } from "vuex";
 import { VueEditor } from "vue2-editor";
 import constructionTree from "../components/construcrionTree";
@@ -70,24 +70,23 @@ export default {
     VueEditor,
     constructionTree,
     managTree,
-    schemaTree
+    schemaTree,
   },
-   methods: {
-      async load() {
-        const res = await axios.get("/data.json"); // dev
-        this.posts = res.data;
-      },
-      noSearch() {
-        console.log("No search")
-      },
-      clickTree(id) {
-        console.log(id)
-        this.nodeClicked = id[0]
-      }
-   },
+  methods: {
+    async load() {
+      const res = await axios.get("/data.json"); // dev
+      this.posts = res.data;
+    },
+    noSearch() {
+      console.log("No search");
+    },
+    clickTree(id) {
+      console.log(id);
+      this.nodeClicked = id;
+    },
+  },
   async mounted() {
-    this.load()
-
+    this.load();
   },
 };
 </script>
@@ -99,12 +98,12 @@ export default {
 }
 .tree {
   background-color: rgb(240, 240, 240);
-  width: 30%;
+  width: 35%;
   height: 90vh;
   overflow: auto;
 }
 .main {
-  width: 70%;
+  width: 65%;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -120,6 +119,10 @@ export default {
   font-size: 12px;
   color: #3914af;
   line-height: 14px;
+}
+
+.active {
+  box-shadow: 0px 4px 4px rgba(255, 95, 95, 0.5);
 }
 
 .post-body {
