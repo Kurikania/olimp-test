@@ -4,9 +4,10 @@ import router from './router'
 import VueTour from 'vue-tour'
 import vueEditor from 'vue2-editor'
 import VueScrollTo from 'vue-scrollto'
+// eslint-disable-next-line
+import styles from './assets/scss/main.scss';
 
 require('vue-tour/dist/vue-tour.css')
-
 Vue.use(VueTour);
 Vue.use(VueScrollTo, {
   container: "#scroller",

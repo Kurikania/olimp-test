@@ -1,24 +1,40 @@
 //https://gist.github.com/mrusklon/bc332558d1b01faf6149df7589e3a21d
-$AlssFontPath: '../../assets/fonts/ALSS';
+// $AlssFontPath: '../../fonts/ALSS';
+
+// @font-face {
+//     font-family: 'ALSSchlangesans-Black';
+//     src: url('~@/assets/scss/design-tokens/ALSS/ALSSchlangesans-Black.otf') format('font-opentype');         
+//     font-weight: bold;
+//     font-style: normal;
+//     }
+
+// @font-face {
+//     font-family: 'ALSSchlangesans';
+//     src: url('~@/assets/scss/design-tokens/ALSS/ALSSchlangesans.otf') format('font-opentype');         
+//     font-weight: normal;
+//     font-style: normal;
+//     }
 
 
-@mixin font-face($fontFamily, $fileName, $fontWeight, $fontStyle, $fontPath: $AlssFontPath) {
-    @font-face {
-        font-family: $fontFamily;
-        src: url('#{$fontPath}/#{$fileName}.otf');
-        // src: local('^'),
-        // url('#{$fontPath}/#{$fileName}.eot?#iefix') format('embedded-opentype'),
-        // url('#{$fontPath}/#{$fileName}.woff2?v=#{$FiraSansFontVersion}') format('woff2'),
-        // url('#{$fontPath}/#{$fileName}.woff?v=#{$FiraSansFontVersion}') format('woff'),
-        // url('#{$fontPath}/#{$fileName}.ttf?v=#{$FiraSansFontVersion}') format('truetype');
-        font-weight: $fontWeight;
-        font-style: $fontStyle;
-    }
-}
+// @mixin font-face($fontFamily, $fileName, $fontWeight, $fontStyle, $fontPath: $AlssFontPath) {
+//     @font-face {
+//         font-family: $fontFamily;
+//         src: url('#{$fontPath}/#{$fileName}.otf');
+//         src: url('~@/assets/fonts/OpenSans-Regular.eot');
+//         src: url('~@/assets/fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+//         // src: local('^'),
+//         // url('#{$fontPath}/#{$fileName}.eot?#iefix') format('embedded-opentype'),
+//         // url('#{$fontPath}/#{$fileName}.woff2?v=#{$FiraSansFontVersion}') format('woff2'),
+//         // url('#{$fontPath}/#{$fileName}.woff?v=#{$FiraSansFontVersion}') format('woff'),
+//         // url('#{$fontPath}/#{$fileName}.ttf?v=#{$FiraSansFontVersion}') format('truetype');
+//         font-weight: $fontWeight;
+//         font-style: $fontStyle;
+//     }
+// }
 
 // Кратенько подключаем нужные шрифты и их варианты
-@include font-face('ALSS', 'ALSSchlangesans', 300, normal);
-@include font-face('ALSS-B', 'ALSSchlangesans-Bold', 300, normal);
+// @include font-face('ALSS', 'ALSSchlangesans', 300, normal);
+// @include font-face('ALSS-B', 'ALSSchlangesans-Bold', 300, normal);
 
 //@include font-face($FiraSansFontFamily, 'firasans', 400, normal);
 //@include font-face($FiraSansFontFamily, 'firasansitalic', 400, italic);
