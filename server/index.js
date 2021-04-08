@@ -1,10 +1,14 @@
-var express = require("express");
-var app = express();
-var http = require("http").createServer(app);
-var fileSystem = require("fs");
-var fastcsv = require("fast-csv");
- 
+const express = require("express");
+const app = express();
+const http = require("http").createServer(app);
+const fileSystem = require("fs");
+const fastcsv = require("fast-csv");
+const cors = require('cors')
+const bodyParser = require('body-parser')
+app.use(cors()) 
 app.use("/public", express.static(__dirname + "/public"));
+app.use(express.urlencoded()); 
+app.use(express.json()); 
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
@@ -26,7 +30,7 @@ const itemScema = new Schema({
 const Items = mongoose.model("Item", itemScema)
  
 
-app.get("/exportData", async (request, result) => {
+app.get("/api/exportData", async (request, result) => {
         var data     
 
         data = Items.find();
@@ -42,6 +46,11 @@ app.get("/exportData", async (request, result) => {
         })
         .pipe(ws);
 });
+
+app.post("/post", (req, res) => {
+    console.log(req.body)
+    res.send(req.body)
+})
 
 http.listen(process.env.PORT || 3000, function () {
     console.log("Connected");

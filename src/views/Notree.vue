@@ -1,11 +1,6 @@
 <template lang="html">
 <div v-on:keydown.114.70.prevent="noSearch">
 <div class="workbook">
-  <div class="tree" >
-       <constructionTree v-if="nodeClicked[0] == 'k'" @clickTree="clickTree" />
-       <schemaTree  v-else-if="nodeClicked[0] == 's'" @clickTree="clickTree" />
-
-  </div>
   <div class="main" >
     <div class="project-filters" style="display: flex;">
       <div class="filters">
@@ -28,7 +23,7 @@
         <span> {{ post.branch }} </span>
         <span> {{post.date}} </span>
         </div>
-        <div @click="clickPost(post.post_id)" v-html='post.content'> </div>
+        <div v-html='post.content'> </div>
         <div class="post-footer">
           <span>{{post.author}}</span>
         </div>
@@ -53,6 +48,7 @@ import managTree from "../components/managTree";
 import schemaTree from "../components/schemaTree";
 
 export default {
+  layout: "olimp",
   data() {
     return {
       content: "<p>Some initial content</p>",
@@ -83,17 +79,6 @@ export default {
       console.log(id);
       this.nodeClicked = id;
     },
-     clickPost(id) {      
-      try {    
-          console.log(id)      
-          let answer = {id: id, text: "test"}
-          axios.post("http://localhost:3000/post",  answer).then(() => {
-         // this.$router.replace({ path: '/finish'})
-          })
-        } catch (err) {
-          console.log(err);
-        }  
-    }
   },
   async mounted() {
     this.load();
