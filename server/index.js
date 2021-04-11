@@ -26,6 +26,8 @@ const itemScema = new Schema({
   name: String,
   time: Number,
   text: String,
+  age: Number,
+  profession: String
 });
 
 const Items = mongoose.model("Item", itemScema);

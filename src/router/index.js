@@ -12,11 +12,13 @@ const routes = [
   {
     path: '/experiment',
     name: 'Home',
+    props: true,
     component: () => import(/* webpackChunkName: "Home" */ '../views/Home.vue')
   },
   {
     path: '/experiment2',
     name: 'Experiment2',
+    props: true,
     component: () => import(/* webpackChunkName: "Home" */ '../views/Notree.vue')
   },
   {

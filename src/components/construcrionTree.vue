@@ -1,6 +1,6 @@
 <template>
 <!-- /* */  <circle v-scroll-to="'#k117'" cx="65.1034" cy="258.244" r="6.51036" fill="white" stroke="#FF5F5F" stroke-width="1.44675"/> -->
-     <svg width="488" height="1932" viewBox="0 0 488 1932" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="488" height="1932" viewBox="0 0 488 1932" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M488 21H0V1932H488V21Z" fill="white"/>
 <path @click="clickTree('s')" d="M390 81V306H416V81H390Z" fill="url(#paint0_linear)" fill-opacity="0.2"/>
 <path d="M443 81H416V207H443V81Z" fill="#FFA031" fill-opacity="0.15"/>
