@@ -102,6 +102,7 @@ export default {
   display: flex;
   flex-direction: column;
   overflow: auto;
+  margin: auto; 
 }
 .post {
   border: 1px solid #ccccff;

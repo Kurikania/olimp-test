@@ -88,7 +88,7 @@ export default {
           console.log(id)      
           let answer = {id: id, text: "test"}
           axios.post("http://localhost:3000/post",  answer).then(() => {
-         // this.$router.replace({ path: '/finish'})
+         this.$router.replace({ path: '/finish'})
           })
         } catch (err) {
           console.log(err);
