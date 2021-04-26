@@ -23,7 +23,7 @@
         <span> {{ post.branch }} </span>
         <span> {{post.date}} </span>
         </div>
-        <div v-html='post.content'> </div>
+        <div  @click="clickPost(post.post_id)" v-html='post.content'> </div>
         <div class="post-footer">
           <span>{{post.author}}</span>
         </div>
@@ -59,6 +59,8 @@ export default {
       ],
       posts: [],
       nodeClicked: "k",
+      startTime: null,
+      endTime: null,
     };
   },
   components: {
@@ -75,13 +77,25 @@ export default {
     noSearch() {
       console.log("No search");
     },
-    clickTree(id) {
-      console.log(id);
-      this.nodeClicked = id;
+    clickPost(id) {
+      try {
+        console.log(id);
+        this.endTime = Date.now();
+        let time = this.endTime - this.startTime;
+        console.log(time);
+        let answer = { id: id, text: "test", time: time };
+        console.log(answer);
+          axios.post("http://localhost:3000/post",  answer).then(() => {
+         this.$router.replace({ path: '/finish'})
+         })
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
   async mounted() {
-    this.load();
+    this.load();    
+    this.startTime = Date.now();
   },
 };
 </script>

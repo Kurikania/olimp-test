@@ -26,12 +26,12 @@
 
   </div>
   <div class="main" >
-    <div class="project-filters" style="display: flex;">
+    <!-- <div class="project-filters" style="display: flex;">
       <div class="filters">
         <span> Записи </span>
         <span> Статьи </span>
         <span> О проекте </span>
-        </div>
+      </div>
         <div style="display: flex; align-items: center;">
         <select name="filters">
         <option value="all">Фильтры</option>
@@ -39,7 +39,7 @@
         </select>
         <input type="text" value="">
       </div>
-    </div>
+    </div> -->
     <div class="flex-column" id="scroller" style="overflow: auto; height: 80vh">
       <div class="post flex-column" :class="{active: nodeClicked == post.id}" v-for="(post, index) in posts" :key="index" :id="post.post_id">
         <div class="post-header">
@@ -125,9 +125,9 @@ export default {
         console.log(time);
         let answer = { id: id, text: "test", time: time };
         console.log(answer);
-        //   axios.post("http://localhost:3000/post",  answer).then(() => {
-        //  this.$router.replace({ path: '/finish'})
-        //  })
+          axios.post("http://localhost:3000/post",  answer).then(() => {
+         this.$router.replace({ path: '/finish'})
+         })
       } catch (err) {
         console.log(err);
       }

@@ -7,7 +7,7 @@ const cors = require("cors");
 app.use(cors());
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.urlencoded());
-const { Parser  } = require('json2csv');
+const { Parser } = require("json2csv");
 app.use(express.json());
 
 const mongoose = require("mongoose");
@@ -27,35 +27,53 @@ const itemScema = new Schema({
   time: Number,
   text: String,
   age: Number,
-  profession: String
+  profession: String,
 });
 
 const Items = mongoose.model("Item", itemScema);
 
-app.get("/api/exportData", async (request, result) => {
+app.get("/api/data", async (req, res) => {
   var data;
-  data = await Items.find({})
-   data = JSON.stringify(data);
-   data = JSON.parse(data);
-    console.log("data", data);
-  
-    
-    const json2csvParser = new Parser();
-    
-    try {    
-      const csv = json2csvParser.parse(...data)
-        fs.writeFile('public/data.csv', csv, function(err) {
-          if (err) throw err;
-          console.log('file saved');
-          });
-      } catch (err) {
-          console.error(err);
-      }
-    
+  data = await Items.find({});
+  console.log("DATA LENGTH", data.length);
+  res.send({number: data.length})
 });
 
-app.post("/post", (req, res) => {
+app.get("/api/exportData", async (req, res) => {
+  var data;
+  data = await Items.find({});
+  data = JSON.stringify(data);
+  data = JSON.parse(data);
+  console.log("data", data);
+
+  const json2csvParser = new Parser();
+
+  try {
+    const csv = json2csvParser.parse(...data);
+    fs.writeFile("public/data.csv", csv, function(err) {
+      if (err) throw err;
+      console.log("file saved");
+    });
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+app.post("/post", async (req, res) => {
   console.log(req.body);
+  const record = new Items({
+    name: req.body.name,
+    time: req.body.time,
+    text: req.body.text,
+    age: req.body.age,
+    profession: req.body.profession,
+  });
+  try {
+    const newRecord = await record.save()
+    // res.redirect(`authors/${newAuthor.id}`)
+  } catch(err) {
+    console.log(err)
+  }
   res.send(req.body);
 });
 

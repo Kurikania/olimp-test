@@ -25,16 +25,26 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
+  data() {
+    return { 
+      number: null
+    }
+  },
   methods: {
     start() {
-      let p =  "p"
-      if (Math.random() > 0.5) {
-        this.$router.replace({name:'Home', params:{p}});
+      let p = "p";
+      if (this.number % 2 == 0) {
+        this.$router.replace({ name: "Home", params: { p } });
       } else {
-        this.$router.replace({ name: "Experiment2", params:{p} });
+        this.$router.replace({ name: "Experiment2", params: { p } });
       }
     },
+  },
+  mounted() {
+   // let number;
+    axios.get("http://localhost:3000/api/data").then(response =>  this.number = response.data.number);
   },
 };
 </script>
