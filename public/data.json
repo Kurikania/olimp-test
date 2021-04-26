@@ -18,8 +18,7 @@
     "content": "Засверлил нижнюю площадку для Arduino Mega. Закрепил её потайными винтами и гайками. Надел сверху CNC Shield с установленными драйверами DRV8825.",
     "with_picture": false,
     "is_approved": true,
-    "is_published": false,
-    "pictures": ["1.jpg", "2.jpg"]
+    "is_published": false
   },
   
   {
@@ -65,7 +64,8 @@
     "content": "Открутил фанерные крышки омниплатформы, снял болты М5 с цилиндрической головкой и внутренним шестигранником (DIN 912) вместе с шайбами, зенкером сделал отверстия “впотай” для болтов М5 с потайной головкой и внутренним шестигранником (DIN 7991 / ISO 10642) <br> Вернул всё на свои места - и теперь крышка и дно омниплатформы - практически идеально ровные. Шайбы и головки болтов теперь не торчат, не мешают - одно удовольствие.",
     "with_picture": false,
     "is_approved": true,
-    "is_published": false
+    "is_published": false,
+    "pictures": ["jan13-1.jpg", "jan13-2.jpg"]
   },
 
   {
@@ -111,7 +111,8 @@
     "content": "Задумался об охлаждении драйверов шаговых двигателей внутри корпуса из профиля. Сначала хотел просто прикрутить к верхней крышке обычный вентилятор с прямой подачей 12VDC 50x50x10мм, всё расчертил, и в этот момент стало грустно за усилия, приложенные к тому, чтобы эта платформа была плоской. <br>Поэтому теперь подумываю сделать забор воздуха из верхней крышки вентилятором с беличьей клеткой и выдув из нижней так, чтобы воздух проходил через драйверы, затем по Arduino и под конец продувал BMS (контроллер заряда-разряда аккумуляторной батареи с балансировкой) и выходил вниз, спереди. Пусть разгоняет перед собой пыль.",
     "with_picture": false,
     "is_approved": true,
-    "is_published": false
+    "is_published": false,
+    "pictures": ["jan20-1.jpg", "jan20-2.jpg"]
   },
   {
     "post_id": "k121",
@@ -240,7 +241,8 @@
     "content": "Продолжил пайку, припаял провода, всё соединил как надо. При прозвоне понял, что случайно инвертировал порядок следования пинов. Плюс моя задумка с тем, чтобы аккуратно расположить провода явно провалилась из-за того, что я для каждой группы проводов оставлял запас в 1-2 см. Теперь этот запас мешает их укладке. <br>Нужно перепаивать разъёмы и укорачивать провода под размер так, чтобы они все лежали плоско.",
     "with_picture": false,
     "is_approved": true,
-    "is_published": false
+    "is_published": false,
+    "pictures": ["feb3-1.jpg", "feb3-2.jpg"]
   },
 
   {
@@ -287,7 +289,7 @@
     "with_picture": false,
     "is_approved": true,
     "is_published": false,
-    "pictures": "1.jpg"
+    "pictures": "mar3.png"
   },
   {
     "post_id": "s136",
@@ -333,7 +335,7 @@
     "with_picture": false,
     "is_approved": true,
     "is_published": false,
-    "pictures": ["1.jpg", "2.jpg"]
+    "pictures": "mar9.png"
   },
 
   {
@@ -357,7 +359,7 @@
     "with_picture": true,
     "is_approved": true,
     "is_published": false,
-    "pictures": ["1.jpg", "2.jpg", "3.jpg"]
+    "pictures": ["mar11-1.png", "mar11-2.png"]
   },
   {
     "post_id": "s142",
@@ -369,7 +371,7 @@
     "with_picture": false,
     "is_approved": true,
     "is_published": false,
-    "pictures": ["1.jpg", "2.jpg", "3.jpg"]
+    "pictures": ["mar12-1.png", "mar12-2.png"]
   },
 
   {
@@ -382,7 +384,7 @@
     "with_picture": false,
     "is_approved": true,
     "is_published": false,
-    "pictures": ["1.jpg", "2.jpg"]
+    "pictures": "mar13.png"
   },
 
   {
@@ -405,8 +407,7 @@
     "content": "Написал Сергею Воробьёву, чтобы получить консультацию об этом всём =)",
     "with_picture": false,
     "is_approved": true,
-    "is_published": false,
-    "pictures": "1.jpg"
+    "is_published": false
   },
   {
     "post_id": "s146",
