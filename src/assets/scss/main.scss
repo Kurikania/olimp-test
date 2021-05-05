@@ -9,6 +9,53 @@
 @import  'layout/flex-grid.scss';
 @import  'pages/login.scss';
 
+::-webkit-scrollbar { 
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #b1cfd6;
+  border-left: 1px solid #a1bdf3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bcd1e9;
+  border: solid 3px #98c0fd;
+  border-radius: 7px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
+#app {
+  // max-width: 1350px;
+}
+:root {
+  font-size: 1.0625em;
+  overflow: unset !important;
+}
+body {
+  overflow:  unset !important;
+}
+h2 {
+  text-align: left;
+  margin: 10px 0 0px;
+  color:#6F47EB;
+}
+h3 {
+  text-align: left;
+  margin: 10px 0 15px;
+  color:#6F47EB;
+}
+.post {
+  border: 1px solid #ccccff;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 7px 30px;
+  margin: auto;
+  // max-width: 800px;
+  width: 100%;
+}
+
 //@import  'skeleton/flex-grid.scss';
 
 //@import  'pages/registration.scss';

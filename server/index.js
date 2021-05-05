@@ -25,11 +25,12 @@ dbConnection.on("error", (err) => console.log(`Connection error: ${err}`));
 dbConnection.once("open", () => console.log("Connected to DB!"));
 
 const itemScema = new Schema({
-  name: String,
-  time: Number,
-  text: String,
-  age: Number,
-  profession: String,
+  question1: Object,
+  question2: Object,
+  question3: Object,
+  question4: Object,
+  question5: Object,
+  userInfo: Object
 });
 
 const Items = mongoose.model("Item", itemScema);
@@ -49,26 +50,29 @@ app.get("/api/exportData", async (req, res) => {
   console.log("data", data);
 
   const json2csvParser = new Parser();
-
+  let file
   try {
     const csv = json2csvParser.parse(...data);
-    fs.writeFile("public/data.csv", csv, function(err) {
+   file = fs.writeFile("public/data.csv", csv,'utf-8', function(err) {
       if (err) throw err;
       console.log("file saved");
+      res.download("public/data.csv")
     });
   } catch (err) {
     console.error(err);
   }
+  
 });
 
 app.post("/post", async (req, res) => {
   console.log(req.body);
   const record = new Items({
-    name: req.body.name,
-    time: req.body.time,
-    text: req.body.text,
-    age: req.body.age,
-    profession: req.body.profession,
+    question1: req.body.questions[0],
+    question2: req.body.questions[1],
+    question3: req.body.questions[2],
+    question4: req.body.questions[3],
+    question5: req.body.questions[4],
+    userInfo: req.body.userInfo
   });
   try {
     const newRecord = await record.save()

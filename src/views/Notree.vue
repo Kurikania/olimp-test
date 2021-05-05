@@ -1,22 +1,11 @@
 <template lang="html">
-<div v-on:keydown.114.70.prevent="noSearch">
+<div class="flex-row align-berween">
+  <div> 
+  <h2> Всенаправленная (омни) платформа </h2>
 <div class="workbook">
-  <div class="main" >
-    <div class="project-filters" style="display: flex;">
-      <div class="filters">
-        <span> Записи </span>
-        <span> Статьи </span>
-        <span> О проекте </span>
-        </div>
-        <div style="display: flex; align-items: center;">
-        <select name="filters">
-        <option value="all">Фильтры</option>
-        <option value="idk">Я не знаю</option>
-        </select>
-        <input type="text" value="">
-      </div>
-    </div>
-    <div class="flex-column" id="scroller" style="overflow: auto; height: 80vh">
+  <div class="main" >    
+    <div class="flex-column" id="scroller" >
+      <h3> Журнал проекта </h3>
       <div class="post flex-column" :class="{active: nodeClicked == post.id}" v-for="(post, index) in posts" :key="index" :id="post.post_id">
         <div class="post-header">
         <span> {{ post.section }} </span>
@@ -27,14 +16,12 @@
         <div class="post-footer">
           <span>{{post.author}}</span>
         </div>
-        </div>
-        <button>Добавить запись </button>
-        <div>
-        <vue-editor v-model="content" :editorToolbar="customToolbar"></vue-editor>
-        </div>
+      </div>
     </div>
   </div>
+  </div>
 </div>
+      <tasks :userInfo="$attrs.userInfo" style="float:right; top: 0"> </tasks> 
 </div>
 </template>
 
@@ -42,21 +29,11 @@
 /* eslint-disable */
 import axios from "axios";
 // import { mapGetters } from "vuex";
-import { VueEditor } from "vue2-editor";
-import constructionTree from "../components/construcrionTree";
-import managTree from "../components/managTree";
-import schemaTree from "../components/schemaTree";
-
+import tasks from "../components/tasks";
 export default {
   layout: "olimp",
   data() {
     return {
-      content: "<p>Some initial content</p>",
-      customToolbar: [
-        ["bold", "italic", "underline"],
-        [{ list: "ordered" }, { list: "bullet" }],
-        ["image", "code-block"],
-      ],
       posts: [],
       nodeClicked: "k",
       startTime: null,
@@ -64,10 +41,7 @@ export default {
     };
   },
   components: {
-    VueEditor,
-    constructionTree,
-    managTree,
-    schemaTree,
+    tasks,
   },
   methods: {
     async load() {
@@ -85,22 +59,26 @@ export default {
         console.log(time);
         let answer = { id: id, text: "test", time: time };
         console.log(answer);
-          axios.post("http://localhost:3000/post",  answer).then(() => {
-         this.$router.replace({ path: '/finish'})
-         })
+        axios.post("http://localhost:3000/post", answer).then(() => {
+          this.$router.replace({ path: "/finish" });
+        });
       } catch (err) {
         console.log(err);
       }
     },
   },
   async mounted() {
-    this.load();    
+    this.load();
     this.startTime = Date.now();
+    console.log(this.$attrs.userInfo)
   },
 };
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
+.align-berween {
+  justify-content: space-between;
+} 
 .workbook {
   display: flex;
   padding: 10px;
@@ -108,15 +86,12 @@ export default {
 .tree {
   background-color: rgb(240, 240, 240);
   width: 35%;
-  height: 90vh;
-  overflow: auto;
 }
 .main {
   width: 65%;
   display: flex;
   flex-direction: column;
-  overflow: auto;
-  margin: auto; 
+  margin: auto;
 }
 .post {
   border: 1px solid #ccccff;
@@ -141,21 +116,5 @@ export default {
   color: #3914af;
   line-height: 14px;
 }
-::-webkit-scrollbar {
-  width: 8px;
-}
 
-::-webkit-scrollbar-track {
-  background: #b1cfd6;
-  border-left: 1px solid #a1bdf3;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #bcd1e9;
-  border: solid 3px #98c0fd;
-  border-radius: 7px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: white;
-}
 </style>
