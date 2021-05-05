@@ -115,7 +115,7 @@ export default {
     // let number;
     // Номер, чтобы определить на какой вариант эксперимента перенаправить
     axios
-      .get(`${process.env.VUE_APP_SERVER_URL}/api/data`)
+      .get(`${process.env.VUE_APP_SERVER_URL}api/data`)
       .then((response) => (this.number = response.data.number));
       console.log(this.number)
   },
