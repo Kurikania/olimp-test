@@ -117,6 +117,7 @@ export default {
     axios
       .get(`${process.env.VUE_APP_SERVER_URL}/api/data`)
       .then((response) => (this.number = response.data.number));
+      console.log(this.number)
   },
 };
 </script>

@@ -36,7 +36,7 @@ export default {
     send() {
       console.log(this.userInfo)
       console.log(process.env.VUE_APP_SERVER_URL);
-      axios.post(process.env.VUE_APP_SERVER_URL, {questions: this.form, userInfo: this.userInfo}).then(() => {
+      axios.post(`${process.env.VUE_APP_SERVER_URL}/post`, {questions: this.form, userInfo: this.userInfo}).then(() => {
         this.$router.replace({ path: "/finish" });
       }).catch((err) => console.log(err));
     },
