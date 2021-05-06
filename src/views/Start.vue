@@ -60,7 +60,8 @@
       </div>
 
       <div class="form__item">
-        <label for="computerLevel"> Ваш пол </label>
+        <label for="computerLevel"> Насколько продвинутым пользователем себя считаете ?
+</label>
         <select
           v-model="userInfo.computerLevel"
           id="computerLevel"
