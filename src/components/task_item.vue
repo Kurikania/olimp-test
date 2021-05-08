@@ -6,9 +6,15 @@
       <!-- <button @click="send">Отправить</button> -->
     </div>
     <label for="complexity"> Оцените сложность задания </label>
-    <select v-model="item.complexity" id="complexity" name="filters">
-      <option v-for="option in 10" :value="option" :key="option">
+    <select @change="upd" v-model="item.complexity" id="complexity" name="filters">
+      <option value=1>
+        1 - очень просто
+      </option>
+      <option v-for="option in options" :value="option" :key="option">
         {{ option }}
+      </option>
+      <option value=10>
+        10 - очень сложно
       </option>
     </select>
   </div>
@@ -20,18 +26,31 @@ export default {
     data() {
         return {
             item: {
-                answer: null,
+                answer: "",
                 complexity: null,
                 startTime: null,
                 endTime: null,
-            }
+                isFilled: false,
+            },
+            options: [2,3,4,5,6,7,8,9]
         }
     },
     methods: {
         send() {
+            if(!!this.item.complexity && (this.item.answer.length !==0) ) {
+              this.item.isFilled = true
+            }
             this.item.index=this.index
             this.item.endTime = Date.now()
             this.item.time =  this.item.endTime -  this.item.startTime
+            this.$emit('info', this.item)
+        },
+        upd() {
+
+            if(!!this.item.complexity && (this.item.answer.length !==0) ) {
+              this.item.isFilled = true
+            }
+            this.item.index=this.index
             this.$emit('info', this.item)
         }
     },

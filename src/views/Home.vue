@@ -1,10 +1,15 @@
 <template lang="html">
-<div class="workbook">
-<div > 
+<div>
+  <div v-if="!isStarted">
+    <h1>Инструкция</h1>
+    <button @click="start">Начать</button>
+  </div>
+<div v-else class="workbook">
+<div>
 <h2> Всенаправленная (омни) платформа </h2>
 <div class="workbook">    
   <div class="tree">
-    <h3> Журнал проекта </h3>
+    <h3> Дерево проекта </h3>
       <div class="tree-header flex "> 
 
         <button @click="switchTree(-1)">
@@ -38,16 +43,17 @@
         <span> {{ post.branch }} </span>
         <span> {{post.date}} </span>
         </div>
-        <div @click="clickPost(post.post_id)" v-html='post.content'> </div>
+        <div v-html='post.content'> </div>
         <div class="post-footer">
-          <span>{{post.author}}</span>
+          <!-- <span>{{post.author}}</span> -->
         </div>
-        </div>
+      </div>
     </div>
   </div>
   </div>
 </div>
-  <tasks :userInfo="$attrs.userInfo" style="position: sticky; position: -webkit-sticky; top: 0"> </tasks>
+  <tasks :userInfo="$attrs.userInfo" :withTree="withTree" style="position: sticky; position: -webkit-sticky; top: 0"> </tasks>
+</div>
 </div>
 </template>
 
@@ -69,6 +75,8 @@ export default {
       trees: ["k", "s", "p", "m"],
       startTime: null,
       endTime: null,
+      withTree: true,
+      isStarted: false,
     };
   },
   props: ["p"],
@@ -80,6 +88,10 @@ export default {
     progTree,
   },
   methods: {
+    start() {
+      this.isStarted = true;
+      this.startTime = Date.now();
+    },
     switchTree(num) {
       if (this.trees.indexOf(this.nodeClicked) == 3 && num === 1) {
         this.nodeClicked = "k";
@@ -120,13 +132,11 @@ export default {
   },
   async mounted() {
     this.load();
-    this.startTime = Date.now();
   },
 };
 </script>
 
 <style lang="scss" scoped>
-
 .workbook {
   display: flex;
   padding: 10px;
@@ -135,6 +145,8 @@ export default {
   min-width: fit-content;
   max-width: 20vw;
   margin-right: 10px;
+    height: 85vh;
+    overflow: auto;
 }
 .tree-header {
   display: flex;
@@ -143,9 +155,9 @@ export default {
   align-items: center;
   button {
     height: 24px;
-    background: #FFFFFF;
-    border: 1px solid #6F47EB;
-    color:#6F47EB;
+    background: #ffffff;
+    border: 1px solid #6f47eb;
+    color: #6f47eb;
     box-sizing: border-box;
     border-radius: 4px;
   }
@@ -188,5 +200,9 @@ export default {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: white;
+}
+#scroller {
+  height: 80vh;
+  overflow: auto;
 }
 </style>

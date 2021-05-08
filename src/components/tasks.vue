@@ -31,13 +31,17 @@ export default {
     };
   },
   components: { TaskItem },
-  props: ['userInfo'],
+  props: ['userInfo', 'withTree'],
   methods: {
     send() {
-      console.log(this.userInfo)
+      console.log(this.form.some(a => a.isFilled == false))
+      console.log("this.userInfo",this.userInfo)
+      if(this.form.some(a => a.isFilled == false)) {
+        alert("Пожалуйста, заполните все поля")
+      }
       console.log(process.env.VUE_APP_SERVER_URL);
-      axios.post(`${process.env.VUE_APP_SERVER_URL}/post`, {questions: this.form, userInfo: this.userInfo}).then(() => {
-        this.$router.replace({ path: "/finish" });
+      axios.post(`${process.env.VUE_APP_SERVER_URL}/api/post`, {questions: this.form, userInfo: this.userInfo, withTree: this.withTree}).then(() => {
+        this.$router.replace({ path: "/finish" , params: { id: this.userInfo.id }});
       }).catch((err) => console.log(err));
     },
     onInfo(data) {
@@ -50,6 +54,7 @@ export default {
 
 <style  lang="scss">
 .contain {
+
   button {
     display: inline-block;
   }
@@ -61,7 +66,7 @@ export default {
     width: 260px;
     // height: fit-content;
     overflow: auto;
-
+    font-size: 0.94em;
     border: 1px solid black;
     box-sizing: border-box;
     border-radius: 4px;

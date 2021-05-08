@@ -1,10 +1,14 @@
 <template lang="html">
-<div class="flex-row align-berween">
-  <div> 
-  <h2> Всенаправленная (омни) платформа </h2>
+<div> 
+  <div v-if="!isStarted">
+    <h1> </h1>
+    <button @click="start">Начать</button>
+  </div>
+<div v-else class="flex-row align-berween">
 <div class="workbook">
+  <h2> Всенаправленная (омни) платформа </h2>
   <div class="main" >    
-    <div class="flex-column" id="scroller" >
+    <div class="flex-column"  >
       <h3> Журнал проекта </h3>
       <div class="post flex-column" :class="{active: nodeClicked == post.id}" v-for="(post, index) in posts" :key="index" :id="post.post_id">
         <div class="post-header">
@@ -14,14 +18,14 @@
         </div>
         <div  @click="clickPost(post.post_id)" v-html='post.content'> </div>
         <div class="post-footer">
-          <span>{{post.author}}</span>
+          <!-- <span>{{post.author}}</span> -->
         </div>
       </div>
     </div>
   </div>
-  </div>
 </div>
-      <tasks :userInfo="$attrs.userInfo" style="float:right; top: 0"> </tasks> 
+      <tasks :userInfo="$attrs.userInfo" :withTree="withTree" style="float:right; top: 0"> </tasks> 
+</div>
 </div>
 </template>
 
@@ -38,12 +42,18 @@ export default {
       nodeClicked: "k",
       startTime: null,
       endTime: null,
+      withTree: false,
+      isStarted: false,
     };
   },
   components: {
     tasks,
   },
   methods: {
+    start() {
+      this.isStarted = true;
+      this.startTime = Date.now();
+    },
     async load() {
       const res = await axios.get("/data.json"); // dev
       this.posts = res.data;
@@ -51,26 +61,26 @@ export default {
     noSearch() {
       console.log("No search");
     },
-    clickPost(id) {
-      try {
-        console.log(id);
-        this.endTime = Date.now();
-        let time = this.endTime - this.startTime;
-        console.log(time);
-        let answer = { id: id, text: "test", time: time };
-        console.log(answer);
-        axios.post("http://localhost:3000/post", answer).then(() => {
-          this.$router.replace({ path: "/finish" });
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    },
+    // clickPost(id) {
+    //   try {
+    //     console.log(id);
+    //     this.endTime = Date.now();
+    //     let time = this.endTime - this.startTime;
+    //     console.log(time);
+    //     let answer = { id: id, text: "test", time: time };
+    //     console.log(answer);
+    //     axios.post("http://localhost:3000/post", answer).then(() => {
+    //       this.$router.replace({ path: "/finish" });
+    //     });
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // },
   },
   async mounted() {
     this.load();
-    this.startTime = Date.now();
-    console.log(this.$attrs.userInfo)
+
+    console.log(this.$attrs.userInfo);
   },
 };
 </script>
@@ -78,10 +88,11 @@ export default {
 <style lang="scss" scoped>
 .align-berween {
   justify-content: space-between;
-} 
+}
 .workbook {
   display: flex;
   padding: 10px;
+  flex-direction: column;
 }
 .tree {
   background-color: rgb(240, 240, 240);
@@ -116,5 +127,4 @@ export default {
   color: #3914af;
   line-height: 14px;
 }
-
 </style>

@@ -30,10 +30,25 @@ const itemScema = new Schema({
   question3: Object,
   question4: Object,
   question5: Object,
-  userInfo: Object
+  userAge: String,
+  userEducation: String,
+  userComputerLevel: String,
+  userComputerExperienceYears: String,
+  userProf: String,
+  userProgExperience: String,
+  userGamingExperience: String,
+  withTree: Boolean
+});
+
+const CommentScema = new Schema({  
+  complexity: String,
+  userProf: String,
+  improvments: String,
+  userId : String
 });
 
 const Items = mongoose.model("Item", itemScema);
+const Comments = mongoose.model("Comment", CommentScema);
 
 app.get("/api/data", async (req, res) => {
   var data;
@@ -53,34 +68,90 @@ app.get("/api/exportData", async (req, res) => {
   let file
   try {
     const csv = json2csvParser.parse(...data);
+   file = fs.writeFile("public/data.csv", csv, function(err) {
+      if (err) throw err;
+      console.log("file saved");
+      res.download("public/data.csv")
+    });
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.post("/api/new", async (req, res) => {
+  const record = new Items();
+  try {
+    let newRecord = null
+    await record.save(function(err,items) {
+      newRecord = items.id;
+      console.log(newRecord);
+      res.send({id: newRecord})
+   });
+    // res.redirect(`authors/${newAuthor.id}`)
+  } catch(err) {
+    console.log(err)
+  }
+})
+
+app.post("/api/post", async (req, res) => {
+  console.log(req.body.userInfo);
+  await Items.findByIdAndUpdate(req.body.userInfo.id, { 
+    question1: req.body.questions[0],
+        question2: req.body.questions[1],
+        question3: req.body.questions[2],
+        question4: req.body.questions[3],
+        question5: req.body.questions[4],
+        userAge:  req.body.userInfo.age,
+        userEducation: req.body.userInfo.education,
+        userComputerLevel: req.body.userInfo.computerLevel,
+        userComputerExperienceYears: req.body.userInfo.computerExperienceYears,
+        userProf: req.body.userInfo.prof,
+        userProgExperience: req.body.userInfo.progExperience,
+        userGamingExperience: req.body.userInfo.gamingExperience,
+        withTree: req.body.withTree
+  })
+  res.send(req.body);
+});
+
+app.post("/api/comments", async (req, res) => {
+  console.log(req.body);
+  const record = new Comments({
+    complexity: req.body.complexity,
+    comments: req.body.comments,
+    improvments: req.body.improvments,
+    userId : req.body.userId
+  });
+  try {
+    let newRecord = null
+    await record.save(function(err,items) {
+      newRecord = items.id;
+      res.send({id: newRecord})
+   });
+  } catch(err) {
+    console.log(err)
+  }
+  res.send(req.body);
+});
+
+app.get("/api/comments", async (req, res) => {
+  var data;
+  data = await Comments.find({});
+  data = JSON.stringify(data);
+  data = JSON.parse(data);
+  console.log("data", data);
+
+  const json2csvParser = new Parser();
+  let file
+  try {
+    const csv = json2csvParser.parse(...data);
    file = fs.writeFile("public/data.csv", csv,'utf-8', function(err) {
       if (err) throw err;
       console.log("file saved");
       res.download("public/data.csv")
     });
   } catch (err) {
-    console.error(err);
+    console.log(err);
   }
-  
-});
-
-app.post("/post", async (req, res) => {
-  console.log(req.body);
-  const record = new Items({
-    question1: req.body.questions[0],
-    question2: req.body.questions[1],
-    question3: req.body.questions[2],
-    question4: req.body.questions[3],
-    question5: req.body.questions[4],
-    userInfo: req.body.userInfo
-  });
-  try {
-    const newRecord = await record.save()
-    // res.redirect(`authors/${newAuthor.id}`)
-  } catch(err) {
-    console.log(err)
-  }
-  res.send(req.body);
 });
 
 http.listen(process.env.PORT || 3000, function() {

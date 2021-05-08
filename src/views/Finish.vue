@@ -1,5 +1,103 @@
 <template>
-    <h1>
-        Спасибо
-    </h1>
+  <div class="finish" style="height: 100vh">
+    <div>
+      <h4>
+        Спасибо за участие! Пожалуйста поделитесь ссылкой на этот эксперимент со
+        своими знакомыми. Получите плюсик к карме
+      </h4>
+      <div class="form__item">
+        Оцените, насколько сложно было выполнить поставленные задачи? (от 1 до
+        10)
+        <select
+          v-model="complexity"
+          id="complexity"
+          name="filters"
+        >
+          <option v-for="option in 10" :value="option" :key="option">
+            {{ option }}
+          </option>
+        </select>
+      </div>
+      <div class="form__item">
+        Как вы считаете, как можно улучшить данный интерфейс? <br />
+        <br />
+        <input
+          v-model="improvments"
+          type="text"
+          name="computer-experience-years"
+          id="computer-experience-years"
+        />
+      </div>
+      <div class="form__item">
+        Ваши комментарии о процессе проведения эксперимента, что было не
+        понятно, не удобно, с какими сложностями столкнулись <br />
+        <br />
+        <input
+          v-model="comments"
+          type="text"
+          name="computer-experience-years"
+          id="computer-experience-years"
+        />
+      </div>
+    </div>
+    <button @click="send">Отправить</button>
+  </div>
 </template>
+
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      complexity: null,
+      improvments: null,
+      comments: null,
+    };
+  },
+  methods: {
+    send() {
+      let id = this.$attrs.id;
+      axios
+        .post(`${process.env.VUE_APP_SERVER_URL}/api/comments`, {
+          complexity: this.complexity,
+          improvments: this.improvments,
+          comments: this.comments,
+          userId: id,
+        })
+        .then(() => {
+          alert("Ответ принят!");
+        })
+        .catch((err) => console.log(err));
+    },
+  },
+};
+</script>
+
+<style lang="scss">
+.finish {
+  button {
+    font-weight: bold;
+    padding: 5px;
+    background: #ffffff;
+    border: 1px solid #6f47eb;
+    color: #6f47eb;
+    border-radius: 4px;
+  }
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  .form__item {
+    padding-bottom: 30px;
+    max-width: 400px;
+    margin: auto;
+    input {
+      margin: auto;
+    }
+  }
+}
+</style>
