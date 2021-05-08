@@ -161,7 +161,7 @@ export default {
         return
       }
       axios
-        .post(`${process.env.VUE_APP_SERVER_URL}/api/new`)
+        .post(`${process.env.VUE_APP_SERVER_URL}/api/new`, {userInfo: userInfo })
         .then((response) => {
           userInfo.id = response.data.id
           // this.$router.replace({ path: "/finish" });

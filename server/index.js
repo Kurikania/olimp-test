@@ -94,7 +94,15 @@ app.get("/api/exportData", async (req, res) => {
 });
 
 app.post("/api/new", async (req, res) => {
-  const record = new Items();
+  const record = new Items({
+    userAge:  req.body.userInfo.age,
+    userEducation: req.body.userInfo.education,
+    userComputerLevel: req.body.userInfo.computerLevel,
+    userComputerExperienceYears: req.body.userInfo.computerExperienceYears,
+    userProf: req.body.userInfo.prof,
+    userProgExperience: req.body.userInfo.progExperience,
+    userGamingExperience: req.body.userInfo.gamingExperience,
+  });
   try {
     let newRecord = null
     await record.save(function(err,items) {
@@ -135,13 +143,6 @@ app.post("/api/post", async (req, res) => {
         question5Answer: req.body.questions[4].answer,
         question5Complexity: req.body.questions[4].complexity,
         question5Time: req.body.questions[4].time,
-        userAge:  req.body.userInfo.age,
-        userEducation: req.body.userInfo.education,
-        userComputerLevel: req.body.userInfo.computerLevel,
-        userComputerExperienceYears: req.body.userInfo.computerExperienceYears,
-        userProf: req.body.userInfo.prof,
-        userProgExperience: req.body.userInfo.progExperience,
-        userGamingExperience: req.body.userInfo.gamingExperience,
         withTree: req.body.withTree
   })
   res.send(req.body);
