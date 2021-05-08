@@ -1,2 +1,3 @@
-"_id","question1","question2","userInfo","__v"
-"60921eba70c2cf1138b564ce","{""answer"":""Радио"",""complexity"":2,""index"":0}","{""answer"":""555"",""complexity"":2,""index"":1}","{""age"":""28"",""education"":""master-student"",""prof"":""биология"",""computerExperienceYears"":""10"",""computerLevel"":""3""}",0
+"_id","__v","question1Answer","question1Complexity","question2Answer","question2Complexity","question3Answer","question3Complexity","question4Answer","question4Complexity","question5Answer","question5Complexity","userAge","userComputerExperienceYears","userComputerLevel","userEducation","userGamingExperience","userProf","userProgExperience","withTree"
+"609697ad0fa3861364061bd1",0,"75",3,"8",4,"88",5,"88",7,"88",10,"28","55","3","student","55","Фиговое","12",true
+"609699142e5799156c4df04f",0,"Разная",1,"Ну так",8,"Нврв",4,"88",10,"Много",3,"100","100","1","student","100","5","100",true

@@ -13,8 +13,8 @@
       <div class="post flex-column" :class="{active: nodeClicked == post.id}" v-for="(post, index) in posts" :key="index" :id="post.post_id">
         <div class="post-header">
         <span> {{ post.section }} </span>
-        <span> {{ post.branch }} </span>
-        <span> {{post.date}} </span>
+        <span class="post-header__branchname" > {{ post.branch }} </span>
+        <span class="post-header__branchname"> {{ new Date(post.date).toLocaleString().slice(0,-12)}} </span>
         </div>
         <div  @click="clickPost(post.post_id)" v-html='post.content'> </div>
         <div class="post-footer">
@@ -112,9 +112,15 @@ export default {
 }
 .post-header {
   font-family: Roboto;
+  font-weight: normal;
   font-size: 12px;
   color: #3914af;
   line-height: 14px;
+  padding-bottom: 5px;
+  &__branchname {
+    font-weight: bold;
+    color: #6F47EB
+  }
 }
 
 .active {

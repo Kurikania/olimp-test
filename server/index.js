@@ -25,11 +25,26 @@ dbConnection.on("error", (err) => console.log(`Connection error: ${err}`));
 dbConnection.once("open", () => console.log("Connected to DB!"));
 
 const itemScema = new Schema({
-  question1: Object,
-  question2: Object,
-  question3: Object,
-  question4: Object,
-  question5: Object,
+  question1Answer: String,
+  question1Complexity: Number,
+  question1Time: Number,
+
+  question2Answer: String,
+  question2Complexity: Number,
+  question2Time: Number,
+
+  question3Answer: String,
+  question3Complexity: Number,
+  question3Time: Number,
+
+  question4Answer: String,
+  question4Complexity: Number,
+  question4Time: Number,
+
+  question5Answer: String,
+  question5Complexity: Number,
+  question5Time: Number,
+
   userAge: String,
   userEducation: String,
   userComputerLevel: String,
@@ -67,7 +82,7 @@ app.get("/api/exportData", async (req, res) => {
   const json2csvParser = new Parser();
   let file
   try {
-    const csv = json2csvParser.parse(...data);
+    const csv = json2csvParser.parse(data);
    file = fs.writeFile("public/data.csv", csv, function(err) {
       if (err) throw err;
       console.log("file saved");
@@ -96,11 +111,30 @@ app.post("/api/new", async (req, res) => {
 app.post("/api/post", async (req, res) => {
   console.log(req.body.userInfo);
   await Items.findByIdAndUpdate(req.body.userInfo.id, { 
-    question1: req.body.questions[0],
-        question2: req.body.questions[1],
-        question3: req.body.questions[2],
-        question4: req.body.questions[3],
-        question5: req.body.questions[4],
+        // question1: req.body.questions[0],
+        // question2: req.body.questions[1],
+        // question3: req.body.questions[2],
+        // question4: req.body.questions[3],
+        // question5: req.body.questions[4],
+        question1Answer: req.body.questions[0].answer,
+        question1Complexity: req.body.questions[0].complexity,
+        question1Time: req.body.questions[0].time,
+      
+        question2Answer: req.body.questions[1].answer,
+        question2Complexity: req.body.questions[1].complexity,
+        question2Time: req.body.questions[1].time,
+      
+        question3Answer: req.body.questions[2].answer,
+        question3Complexity: req.body.questions[2].complexity,
+        question3Time: req.body.questions[2].time,
+      
+        question4Answer: req.body.questions[3].answer,
+        question4Complexity: req.body.questions[3].complexity,
+        question4Time: req.body.questions[3].time,
+      
+        question5Answer: req.body.questions[4].answer,
+        question5Complexity: req.body.questions[4].complexity,
+        question5Time: req.body.questions[4].time,
         userAge:  req.body.userInfo.age,
         userEducation: req.body.userInfo.education,
         userComputerLevel: req.body.userInfo.computerLevel,
