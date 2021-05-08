@@ -1,7 +1,7 @@
 <template lang="html">
 <div> 
-  <div v-if="!isStarted">
-    <h1> </h1>
+  <div class="greeting" v-if="!isStarted">
+    <h1>Инструкция</h1>
     <button @click="start">Начать</button>
   </div>
 <div v-else class="flex-row align-berween">
