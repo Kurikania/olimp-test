@@ -3,7 +3,7 @@
   <div  class="workbook" style="flex-direction: column; align-items: center"   v-if="!isStarted">
     <div  class="greeting">Интерфейс в который вы сейчас попадете, представляет собой журнал проекта, где собраны записи о процессе разработки всенаправленной платформы.
 У каждой записи в журнале есть следуюшие атрибуты: раздел, ветка и дата внесения записи..</div>
-    <div style=" margin: auto; height:432px; width: 1456px; background-image: url('/Instruktsia2.png');">
+    <div style=" margin: auto; max-width: 100vw; height:432px; width: 1456px; background-image: url('/Instruktsia2.png');">
     <img src="url('/Instruktsia2.png')"  style="visibility : hidden;"/>
     </div>
     <button style=" height: 24px;

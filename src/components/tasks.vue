@@ -1,7 +1,7 @@
 <template >
   <div class="contain">
     <div class="task display-column">
-      <h3>Задания <button @click="send">Send</button></h3>
+      <h3>Задания <button @click="send">Отправить</button></h3>
       <task-item
         @info="onInfo"
         v-for="(question, index) in questions"
@@ -37,6 +37,7 @@ export default {
       console.log(this.form.some(a => a.isFilled == false))
       console.log("this.userInfo",this.userInfo)
       if(this.form.some(a => a.isFilled == false)) {
+        console.warn(" Is not filled",this.form.some(a => a.isFilled == false))
         alert("Пожалуйста, заполните все поля")
       }
       console.log(process.env.VUE_APP_SERVER_URL);
@@ -57,6 +58,12 @@ export default {
 
   button {
     display: inline-block;
+    height: 24px;
+    background: #ffffff;
+    border: 1px solid #6f47eb;
+    color: #6f47eb;
+    box-sizing: border-box;
+    border-radius: 4px;
   }
   .task {
     h3 {

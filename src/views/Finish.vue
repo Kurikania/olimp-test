@@ -5,7 +5,7 @@
         Спасибо за участие! Пожалуйста поделитесь ссылкой на этот эксперимент со
         своими знакомыми. Получите плюсик к карме
       </h4>
-      <div class="form__item">
+      <!-- <div class="form__item">
         Оцените, насколько сложно было выполнить поставленные задачи? (от 1 до
         10)
         <select
@@ -17,7 +17,7 @@
             {{ option }}
           </option>
         </select>
-      </div>
+      </div> -->
       <div class="form__item">
         Как вы считаете, как можно улучшить данный интерфейс? <br />
         <br />
@@ -49,7 +49,6 @@ import axios from "axios";
 export default {
   data() {
     return {
-      complexity: null,
       improvments: null,
       comments: null,
     };
@@ -59,7 +58,6 @@ export default {
       let id = this.$attrs.id;
       axios
         .post(`${process.env.VUE_APP_SERVER_URL}/api/comments`, {
-          complexity: this.complexity,
           improvments: this.improvments,
           comments: this.comments,
           userId: id,
@@ -92,12 +90,13 @@ export default {
   justify-content: center;
   font-weight: bold;
   .form__item {
+text-align: center;
     padding-bottom: 30px;
     max-width: 400px;
     margin: auto;
-    input {
-      margin: auto;
-    }
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 }
 </style>

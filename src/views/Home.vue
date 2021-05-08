@@ -5,7 +5,7 @@
         (1) дерево проекта, где схематично отображается процесс разработки (2) журнал проекта, где собраны записи о процессе реализации проекта
 
 Каждой записи соответствует точка на дереве проекта. Точки в дереве и записи в журнале имеют одинаковые атрибуты: раздел, ветку и дату внесения записи. По клику на точку в дереве журнал перелистывается к соответствующей записи.</div>
-    <div style="margin: auto;  width: 1456px; height:432px; background-image: url('/Instruktsia1.png')">
+    <div style="margin: auto; max-width: 100vw;  width: 1456px; height:432px; background-image: url('/Instruktsia1.png')">
     <img src="url('/Instruktsia1.png')"  style="visibility : hidden;">
     </div>
     <button style=" height: 24px;
