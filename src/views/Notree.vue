@@ -1,8 +1,18 @@
 <template lang="html">
 <div> 
-  <div class="greeting" v-if="!isStarted">
-    <h1>Инструкция</h1>
-    <button @click="start">Начать</button>
+  <div  class="workbook" style="flex-direction: column; align-items: center"   v-if="!isStarted">
+    <div  class="greeting">Интерфейс в который вы сейчас попадете, представляет собой журнал проекта, где собраны записи о процессе разработки всенаправленной платформы.
+У каждой записи в журнале есть следуюшие атрибуты: раздел, ветка и дата внесения записи..</div>
+    <div style=" margin: auto; height:432px; width: 90vw; background-image: url('/Instruktsia2.png')">
+    <img src="url('/Instruktsia2.png')"  style="visibility : hidden;"/>
+    </div>
+    <button style=" height: 24px;
+    background: #ffffff;
+    border: 1px solid #6f47eb;
+    font-size: 20px;
+    color: #6f47eb;
+    box-sizing: border-box;
+    border-radius: 4px;" class="greeting" @click="start">Начать</button>
   </div>
 <div v-else class="flex-row align-berween">
 <div class="workbook">
@@ -119,7 +129,7 @@ export default {
   padding-bottom: 5px;
   &__branchname {
     font-weight: bold;
-    color: #6F47EB
+    color: #6f47eb;
   }
 }
 

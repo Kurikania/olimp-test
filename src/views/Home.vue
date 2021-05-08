@@ -1,8 +1,20 @@
 <template lang="html">
 <div>
-  <div v-if="!isStarted">
-    <h1>Инструкция</h1>
-    <button @click="start">Начать</button>
+  <div class="workbook" style="flex-direction: column; align-items: center"   v-if="!isStarted">
+        <div class="greeting">Интерфейс в который вы сейчас попадете состоит из двух частей:
+        (1) дерево проекта, где схематично отображается процесс разработки (2) журнал проекта, где собраны записи о процессе реализации проекта
+
+Каждой записи соответствует точка на дереве проекта. Точки в дереве и записи в журнале имеют одинаковые атрибуты: раздел, ветку и дату внесения записи. По клику на точку в дереве журнал перелистывается к соответствующей записи.</div>
+    <div style="margin: auto; width: 90vw; height:432px; background-image: url('/Instruktsia1.png')">
+    <img src="url('/Instruktsia1.png')"  style="visibility : hidden;">
+    </div>
+    <button style=" height: 24px;
+    background: #ffffff;
+    border: 1px solid #6f47eb;
+    color: #6f47eb;
+    font-size: 20px;
+    box-sizing: border-box;
+    border-radius: 4px;" class="greeting" @click="start">Начать</button>
   </div>
 <div v-else class="workbook">
 <div>
@@ -145,8 +157,8 @@ export default {
   min-width: fit-content;
   max-width: 20vw;
   margin-right: 10px;
-    height: 85vh;
-    overflow: auto;
+  height: 85vh;
+  overflow: auto;
 }
 .tree-header {
   display: flex;
@@ -175,8 +187,8 @@ export default {
   line-height: 14px;
   padding-bottom: 5px;
   &__branchname {
-  font-weight: bold;
-   color: #6F47EB
+    font-weight: bold;
+    color: #6f47eb;
   }
 }
 
