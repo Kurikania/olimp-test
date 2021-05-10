@@ -1,3 +1,14 @@
-"_id","__v","question1Answer","question1Complexity","question2Answer","question2Complexity","question3Answer","question3Complexity","question4Answer","question4Complexity","question5Answer","question5Complexity","userAge","userComputerExperienceYears","userComputerLevel","userEducation","userGamingExperience","userProf","userProgExperience","withTree"
-"609697ad0fa3861364061bd1",0,"75",3,"8",4,"88",5,"88",7,"88",10,"28","55","3","student","55","Фиговое","12",true
-"609699142e5799156c4df04f",0,"Разная",1,"Ну так",8,"Нврв",4,"88",10,"Много",3,"100","100","1","student","100","5","100",true
+"_id","__v","question1Answer","question1Complexity","question2Answer","question2Complexity","question3Answer","question3Complexity","question4Answer","question4Complexity","question5Answer","question5Complexity","userAge","userComputerExperienceYears","userComputerLevel","userEducation","userGamingExperience","userProf","userProgExperience","withTree","question1Time","question2Time","question3Time","question4Time","question5Time"
+"609697ad0fa3861364061bd1",0,"75",3,"8",4,"88",5,"88",7,"88",10,"28","55","3","student","55","Фиговое","12",true,,,,,
+"609699142e5799156c4df04f",0,"Разная",1,"Ну так",8,"Нврв",4,"88",10,"Много",3,"100","100","1","student","100","5","100",true,,,,,
+"6096a5a15a94ea0015887f20",0,,,,,,,,,,,,,,,,,,,,,,,
+"6096a5c05a94ea0015887f21",0,,,,,,,,,,,,,,,,,,,,,,,
+"6096a71825098800158e1c65",0,,,,,,,,,,,,,,,,,,,,,,,
+"6096a93425098800158e1c66",0,,,,,,,,,,,,,,,,,,,,,,,
+"6096aef76c38d30015f96a30",0,,,,,,,,,,,,,,,,,,,,,,,
+"6096b0c9503b32001562f7bf",0,"радиомодуль",5,"26 февраля",4,"4",7,"февраль",3,"5",5,"25","10","3","master","1","design","1",true,38737,60949,95101,103677,126715
+"6096b6b21108620015da1db7",0,"Подключение радиомодуля",1,"27.02.20",1,"5",1,"-",10,"5",5,"29","16","4","master-student","Да, около 21 года"," Модульные технологии в биомехатронике","В течение 20 лет, не регулярно, не по профессии",false,47086,78610,90443,107021,164610
+"6096cb5ec2cc9d00153290b0",0,"включение омниплатформы при помощи спящего режима и активацию через радиомодуль",8,"03 03 20",1,"4",5,"февраль",7,"5",2,"45","33","3","Высшее, к.т.н.","33","Оптотехника","20",true,490198,567226,672158,910165,940598
+"6098d47611178206bc826cca",0,,,,,,,,,,,"1800","10","2","Фиговое","10","Так себе"," Когда-то изучал самостоятельно",,,,,,
+"6098d47711178206bc826ccb",0,,,,,,,,,,,"1800","10","2","Фиговое","10","Так себе"," Когда-то изучал самостоятельно",,,,,,
+"609936bc11178206bc826ccc",0,"Радио",1,"марте",2,"5",1,"8",4,"Много",6,"1992","5","1","Среднее","Нет","Специальная"," Когда-то изучал самостоятельно",false,13619,35907,48849,52268,56969

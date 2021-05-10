@@ -14,13 +14,13 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #b1cfd6;
-  border-left: 1px solid #a1bdf3;
+  background: #dbf2f7;
+  border-left: 1px solid #b6ccf7;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #bcd1e9;
-  border: solid 3px #98c0fd;
+  border: solid 1px #98c0fd;
   border-radius: 7px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -58,8 +58,14 @@ h3 {
 .greeting {
   max-width: 800px;
   margin: auto;
-  
 } 
+
+circle {
+  cursor: pointer;
+}
+button {
+  cursor: pointer;
+}
 
 //@import  'skeleton/flex-grid.scss';
 

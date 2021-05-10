@@ -13,11 +13,11 @@
       <option v-for="option in options" :value="option" :key="option">
         {{ option }}
       </option>
-      <option value=5>
-       5 - очень сложно
+      <option value=7>
+       7 - очень сложно
       </option>
-      <option value=6>
-       6 - не справился
+      <option value=8>
+       8 - не справился
       </option>
     </select>
   </div>
@@ -35,7 +35,7 @@ export default {
                 endTime: null,
                 isFilled: false,
             },
-            options: [2,3,4]
+            options: [2,3,4,5,6]
         }
     },
     methods: {

@@ -55,7 +55,7 @@ const itemScema = new Schema(
     question5Complexity: Number,
     question5Time: Number,
   },
-  { timestamps: { currentTime: () => Date.now().toLocaleString() } }
+  { timestamps: { createdAt: 'created_at' } }
 );
 
 const CommentScema = new Schema({
