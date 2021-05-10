@@ -13,6 +13,7 @@ Vue.use(VueScrollTo, {
   container: "#scroller",
 })
 // Vue.use(vueEditor);
+Vue.use(require('vue-shortkey'))
 
 
 Vue.config.productionTip = false

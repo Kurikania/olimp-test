@@ -1,11 +1,17 @@
 <template lang="html">
-<div>
+<div  v-shortkey="['ctrl', 'f']" @shortkey="theAction()" >
   <div class="workbook" style="flex-direction: column; align-items: center"   v-if="!isStarted">
-        <div class="greeting">Интерфейс в который вы сейчас попадете состоит из двух частей:
-        (1) дерево проекта, где схематично отображается процесс разработки (2) журнал проекта, где собраны записи о процессе реализации проекта
+        <div class="greeting">
+          Интерфейс в который вы сейчас попадете содержит: <br>
+(1) Дерево проекта, где схематично отображается процесс разработки <br>
+(2) Журнал проекта, где собраны записи о процессе реализации проекта.<br>
+(3) Поле с заданиями<br>
 
-Каждой записи соответствует точка на дереве проекта. Точки в дереве и записи в журнале имеют одинаковые атрибуты: раздел, ветку и дату внесения записи. По клику на точку в дереве журнал перелистывается к соответствующей записи.</div>
-    <div style="margin: auto; max-width: 100vw;  width: 1456px; height:432px; background-image: url('/Instruktsia1.png')">
+Каждой записи соответствует точка на дереве проекта. Точки в дереве и записи в журнале имеют одинаковые атрибуты: раздел, ветку и дату внесения записи. Дерево кликабельно! Вы можете открывать нужные вам разделы по клику на свернутую ветку или на стрелочку около названия.<br>
+
+Ваша задача — максимально быстро найти ответ на вопрос из поля с заданиями. Не волнуйтесь, мы тестируем интерфейс, а не вас.
+        </div>
+    <div style="margin: auto; background-repeat: no-repeat;     background-size: contain; width: 100%; height:432px; background-image: url('/Instruktsia1.png')">
     <img src="url('/Instruktsia1.png')"  style="visibility : hidden;">
     </div>
     <button style=" height: 24px;
@@ -46,16 +52,19 @@
        <managTree  v-else-if="nodeClicked[0] == 'm'" @clickTree="clickTree" />
 
   </div>
-  <div class="main" >
+  <div class="main"  v-shortkey="['ctrl', 'а']" @shortkey="theAction()" >
     <h3> Журнал проекта </h3>
     <div class="flex-column" id="scroller" >
       <div class="post flex-column" :class="{active: nodeClicked == post.id}" v-for="(post, index) in posts" :key="index" :id="post.post_id">
         <div class="post-header">
         <span> {{ post.section }} </span>
         <span class="post-header__branchname" > {{ post.branch }} </span>
-        <span class="post-header__branchname"> {{ new Date(post.date).toLocaleString().slice(0,-12)}} </span>
+        <span class="post-header__branchname"> {{ getCorrectDate(post.date) }} </span>
         </div>
         <div v-html='post.content'> </div>
+        <div v-if="post.pictures" class>
+          <img  v-for="picture in post.pictures" :key="picture" :src="picture"  >        
+        </div>
         <div class="post-footer">
           <!-- <span>{{post.author}}</span> -->
         </div>
@@ -100,6 +109,15 @@ export default {
     progTree,
   },
   methods: {
+    getCorrectDate(date) {
+      let d = new Date(date);
+      return new Date(d.setDate(d.getDate() - 1))
+        .toLocaleString()
+        .split(',')[0]
+    },
+    theAction() {
+      alert("Вы не можете использовать поиск");
+    },
     start() {
       this.isStarted = true;
       this.startTime = Date.now();
@@ -190,6 +208,9 @@ export default {
     font-weight: bold;
     color: #6f47eb;
   }
+  span {
+    padding-right: 10px;
+  }
 }
 
 .active {
@@ -197,6 +218,10 @@ export default {
 }
 .post {
   margin: 3px auto;
+  img {
+    width: 45%;
+    margin-left: 5px;
+  }
 }
 .post-body {
   font-family: Roboto;

@@ -13,8 +13,8 @@
       <option v-for="option in options" :value="option" :key="option">
         {{ option }}
       </option>
-      <option value=10>
-        10 - очень сложно
+      <option value=6>
+       6 - не справился
       </option>
     </select>
   </div>
@@ -32,7 +32,7 @@ export default {
                 endTime: null,
                 isFilled: false,
             },
-            options: [2,3,4,5,6,7,8,9]
+            options: [2,3,4,5]
         }
     },
     methods: {

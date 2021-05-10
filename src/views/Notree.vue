@@ -1,9 +1,14 @@
 <template lang="html">
-<div> 
+<div v-shortkey="['ctrl', 'f']" @shortkey="theAction()" > 
   <div  class="workbook" style="flex-direction: column; align-items: center"   v-if="!isStarted">
-    <div  class="greeting">Интерфейс в который вы сейчас попадете, представляет собой журнал проекта, где собраны записи о процессе разработки всенаправленной платформы.
-У каждой записи в журнале есть следуюшие атрибуты: раздел, ветка и дата внесения записи..</div>
-    <div style=" margin: auto; max-width: 100vw; height:432px; width: 1456px; background-image: url('/Instruktsia2.png');">
+    <div  class="greeting">И
+      Интерфейс в который вы сейчас попадете содержит: <br>
+(1) Журнал проекта, где собраны записи о процессе реализации проекта.где собраны записи о процессе разработки всенаправленной платформы.
+У каждой записи в журнале есть следующие атрибуты: раздел, ветка и дата внесения записи. <br>
+(2) Поле с заданиями
+
+    </div>
+    <div style=" margin: auto; background-repeat: no-repeat;    background-size: contain; height:432px; width: 100%; background-image: url('/Instruktsia2.png');">
     <img src="url('/Instruktsia2.png')"  style="visibility : hidden;"/>
     </div>
     <button style=" height: 24px;
@@ -17,16 +22,19 @@
 <div v-else class="flex-row align-berween">
 <div class="workbook">
   <h2> Всенаправленная (омни) платформа </h2>
-  <div class="main" >    
+  <div class="main" v-shortkey="['ctrl', 'а']" @shortkey="theAction()">    
     <div class="flex-column"  >
       <h3> Журнал проекта </h3>
       <div class="post flex-column" :class="{active: nodeClicked == post.id}" v-for="(post, index) in posts" :key="index" :id="post.post_id">
         <div class="post-header">
         <span> {{ post.section }} </span>
         <span class="post-header__branchname" > {{ post.branch }} </span>
-        <span class="post-header__branchname"> {{ new Date(post.date).toLocaleString().slice(0,-12)}} </span>
+        <span class="post-header__branchname"> {{  getCorrectDate(post.date) }} </span>
         </div>
         <div  @click="clickPost(post.post_id)" v-html='post.content'> </div>
+        <div v-if="post.pictures" class>
+          <img  v-for="picture in post.pictures" :key="picture" :src="picture"  >        
+        </div>
         <div class="post-footer">
           <!-- <span>{{post.author}}</span> -->
         </div>
@@ -60,9 +68,16 @@ export default {
     tasks,
   },
   methods: {
+    theAction() {
+      alert("Вы не можете использовать поиск");
+    },
     start() {
       this.isStarted = true;
       this.startTime = Date.now();
+    },
+    getCorrectDate(date){
+      let d =  new Date(date)
+     return new Date(d.setDate(d.getDate() -1)).toLocaleString().split(',')[0]
     },
     async load() {
       const res = await axios.get("/data.json"); // dev
@@ -119,6 +134,10 @@ export default {
   box-sizing: border-box;
   border-radius: 4px;
   padding: 7px 30px;
+  img{
+    width: 45%;
+    margin-left: 5px;
+  }
 }
 .post-header {
   font-family: Roboto;
@@ -130,6 +149,9 @@ export default {
   &__branchname {
     font-weight: bold;
     color: #6f47eb;
+  }
+  span{
+    padding-right: 10px;
   }
 }
 

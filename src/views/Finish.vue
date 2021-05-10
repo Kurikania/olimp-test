@@ -21,22 +21,20 @@
       <div class="form__item">
         Как вы считаете, как можно улучшить данный интерфейс? <br />
         <br />
-        <input
+        <textarea
           v-model="improvments"
-          type="text"
-          name="computer-experience-years"
-          id="computer-experience-years"
+           cols="50"
+           rows="5"
         />
       </div>
       <div class="form__item">
         Ваши комментарии о процессе проведения эксперимента, что было не
         понятно, не удобно, с какими сложностями столкнулись <br />
         <br />
-        <input
-          v-model="comments"
-          type="text"
-          name="computer-experience-years"
-          id="computer-experience-years"
+        <textarea
+          v-model="comments"        
+          cols="50"
+           rows="5"
         />
       </div>
     </div>
@@ -97,6 +95,9 @@ text-align: center;
     display: flex;
     align-items: center;
     flex-direction: column;
+  }
+  textarea {
+    border: 1px solid #6f47eb;
   }
 }
 </style>

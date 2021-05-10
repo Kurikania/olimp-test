@@ -1,19 +1,24 @@
 <template>
   <div class="about">
     <div class="post">
-      <p>
-        Здравствуйте, меня зовут Светлана, я учусь в магистратуре ИТМО на
-        специальности дизайнера интерфейсов и провожу исследование о способах
-        организации информации при документировании инженерных проектов.
-      </p>
-      <p>
-        Участие в эксперименте займет около 10 минут и поможет мне собрать
-        данные для своей ВКР. Пожалуйста, выполняйте задания с компьютера.
-      </p>
+      <div style="display: flex" > 
+      <img style="width: 150px; display: block; padding-right: 10px" src="Sveta_circle.jpg">
+      <div>
+        <p>
+          Здравствуйте, меня зовут Светлана, я учусь в магистратуре ИТМО на
+          специальности дизайнера интерфейсов и провожу исследование о способах
+          организации информации при документировании инженерных проектов.
+        </p>
+        <p>
+          Участие в эксперименте займет около 15-20 минут и поможет мне собрать
+          данные для своей ВКР. Пожалуйста, выполняйте задания с компьютера.
+        </p>
+      </div>
+      </div>
       <p>
         После знакомства с интерфейсом вы увидите описание процесса разработки
-        робота, в правой части экрана вы увидите вопросы, на которые вам нужно
-        будет найти ответ, и поля для ввода. Не волнуйтесь, мы тестируем
+        робота, в правой части экрана вы увидите вопросы (задания), на которые вам нужно
+        будет максимально быстро найти ответ, и поля для ввода. Не волнуйтесь, мы тестируем
         интерфейс, а не вас. Если вы не нашли ответ отправьте в форме прочек
         (дефис).
       </p>
@@ -28,8 +33,8 @@
     <div class="form">
       <div class="form__group">
         <div class="form__item">
-          <label for="age"> Ваш возраст </label>
-          <input v-model="userInfo.age" type="number" name="age" id="age" />
+          <label for="age"> Укажите год рождения </label>
+          <input v-model="userInfo.age" type="number" name="age" step="1" min="1900" max="2020" id="age" />
         </div>
 
         <div v-if="!otherEducation" class="form__item">
@@ -43,8 +48,14 @@
             <option value="master-student">Магистр</option>
             <option value="phd-student">Аспирант</option>
           </select>
+           <br>
+          <input id="otherEducation" type="checkbox" v-model="otherEducation" />
+          <label style="display: inline; font-size: 14px" for="otherEducation">
+            Указать свой вариант
+          </label>
         </div>
-        <div v-if="otherEducation">
+
+        <div v-if="otherEducation" class="form__item">
           <label for="prof"> Образование </label>
           <input
             v-model="userInfo.education"
@@ -52,14 +63,15 @@
             name="prof"
             id="prof"
           />
-        </div>
-
-        <div>
+          <br>
           <input id="otherEducation" type="checkbox" v-model="otherEducation" />
-          <label style="display: inline" for="otherEducation">
+          <label style="display: inline; font-size: 14px" for="otherEducation">
             Указать свой вариант
           </label>
         </div>
+
+        
+        
 
         <div class="form__item">
           <label for="prof"> Специальность </label>
@@ -88,34 +100,49 @@
             id="computerLevel"
             name="computerLevel"
           >
-            <option value="4">
-              4 - знаю устройство компьютера, могу с легкостью переустановить
-              операционную систему и все программы самостоятельно
-            </option>
-            <option value="3">
-              3 - смогу при необходимости установить нужные программы
+            <option value="1">
+              1 - знаю как включить компьютер, умею работать с несколькими
+              необходимыми программами
             </option>
             <option value="2">
               2 - умею работать с офисными программами, облачными хранилищами,
               электронной почтой и специализированными программами.
             </option>
-            <option value="1">
-              1 - знаю как включить компьютер, умею работать с несколькими
-              необходимыми программами
+            <option value="3">
+              3 - смогу при необходимости установить нужные программы
+            </option>
+            <option value="4">
+              4 - знаю устройство компьютера, могу с легкостью переустановить
+              операционную систему и все программы самостоятельно
             </option>
           </select>
         </div>
 
         <div class="form__item">
           <label for="programming">
-            Если есть опыт программирования, укажите сколько лет 
+            Укажите опыт в программировании. 
           </label>
-          <input
+<select
             v-model="userInfo.progExperience"
-            type="text"
-            name="programming"
-            id="programming"
-          />
+            id="computerLevel"
+            name="computerLevel"
+          >
+            <option value="Нет">
+              1 - Нет
+            </option>
+            <option value=" Когда-то изучал самостоятельно">
+              2 - Когда-то изучал самостоятельно, выполнил несколько учебных упражнений
+            </option>
+            <option value="Изучал самостоятельно">
+              3 - Изучал самостоятельно, смогу решить свои задачки вместе с гуглом
+            </option>
+            <option value="Изучал систематически">
+              4 - Изучал систематически, умею выполнять проекты в выбранной области
+            </option>
+            <option value="Это мой основной вид деятельности">
+              5 - Это мой основной вид деятельности, уверенно выполняю большинство проектов в выбранной области.
+            </option>
+          </select>
         </div>
 
         <div class="form__item">

@@ -1,7 +1,7 @@
 [
   {
     "post_id": "m111",
-    "date": "2020-01-08T10:05:50.780Z",
+    "date": "2020-01-08T21:00:00.000Z",
     "section": "менеджмент",
     "branch": "Компоненты",
     "author": "Кирилл Бодров",
@@ -198,7 +198,7 @@
   },
 
   {
-    "post_id": "s128",
+    "post_id": "p128",
     "date": "2020-01-27T22:00:00.000Z",
     "section": "программирование",
     "branch": "радиомодуль",
@@ -289,7 +289,7 @@
     "with_picture": false,
     "is_approved": true,
     "is_published": false,
-    "pictures": "mar3.png"
+    "pictures": ["mar3.png"]
   },
   {
     "post_id": "s136",
@@ -335,7 +335,7 @@
     "with_picture": false,
     "is_approved": true,
     "is_published": false,
-    "pictures": "mar9.png"
+    "pictures": ["mar9.png"]
   },
 
   {
@@ -384,7 +384,7 @@
     "with_picture": false,
     "is_approved": true,
     "is_published": false,
-    "pictures": "mar13.png"
+    "pictures": ["mar13.png"]
   },
 
   {
