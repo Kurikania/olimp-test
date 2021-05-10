@@ -40,13 +40,13 @@
         <div v-if="!otherEducation" class="form__item">
           <label for="education"> Образование </label>
           <select v-model="userInfo.education" id="education" name="filters">
-            <option value="student">Среднее</option>
-            <option value="student">Среднее-специальное</option>
-            <option value="student">Студент</option>
-            <option value="bachelor-student">Бакалавр</option>
-            <option value="master">Магистрант</option>
-            <option value="master-student">Магистр</option>
-            <option value="phd-student">Аспирант</option>
+            <option value="Среднее">Среднее</option>
+            <option value="Среднее-специальное">Среднее-специальное</option>
+            <option value="Студент">Студент</option>
+            <option value="Бакалавр">Бакалавр</option>
+            <option value="Магистрант">Магистрант</option>
+            <option value="агистр">Магистр</option>
+            <option value="Аспирант">Аспирант</option>
           </select>
            <br>
           <input id="otherEducation" type="checkbox" v-model="otherEducation" />
@@ -68,10 +68,7 @@
           <label style="display: inline; font-size: 14px" for="otherEducation">
             Указать свой вариант
           </label>
-        </div>
-
-        
-        
+        </div> 
 
         <div class="form__item">
           <label for="prof"> Специальность </label>
@@ -122,7 +119,7 @@
           <label for="programming">
             Укажите опыт в программировании. 
           </label>
-<select
+          <select
             v-model="userInfo.progExperience"
             id="computerLevel"
             name="computerLevel"
@@ -147,14 +144,13 @@
 
         <div class="form__item">
           <label for="game">
-            Играете ли вы в компьютерные игры, как давно?
+            В поле ниже можно оставить комментарий к последнему вопросу.
           </label>
-          <input
-            v-model="userInfo.gamingExperience"
-            type="text"
-            name="game"
-            id="game"
-          />
+        <textarea
+            v-model="userInfo.gamingExperience"         
+           cols="30"
+           rows="4"
+        />
         </div>
       </div>
     </div>
