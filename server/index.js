@@ -25,6 +25,15 @@ dbConnection.on("error", (err) => console.log(`Connection error: ${err}`));
 dbConnection.once("open", () => console.log("Connected to DB!"));
 
 const itemScema = new Schema({
+  userAge: String,
+  userEducation: String,
+  userComputerLevel: String,
+  userComputerExperienceYears: String,
+  userProf: String,
+  userProgExperience: String,
+  userGamingExperience: String,
+  withTree: Boolean,
+
   question1Answer: String,
   question1Complexity: Number,
   question1Time: Number,
@@ -45,15 +54,8 @@ const itemScema = new Schema({
   question5Complexity: Number,
   question5Time: Number,
 
-  userAge: String,
-  userEducation: String,
-  userComputerLevel: String,
-  userComputerExperienceYears: String,
-  userProf: String,
-  userProgExperience: String,
-  userGamingExperience: String,
-  withTree: Boolean
-});
+},
+{ timestamps: { currentTime: () => Date.now().toLocaleString()  }});
 
 const CommentScema = new Schema({  
   complexity: String,
