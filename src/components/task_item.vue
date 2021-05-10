@@ -13,6 +13,9 @@
       <option v-for="option in options" :value="option" :key="option">
         {{ option }}
       </option>
+      <option value=5>
+       5 - очень сложно
+      </option>
       <option value=6>
        6 - не справился
       </option>
@@ -32,7 +35,7 @@ export default {
                 endTime: null,
                 isFilled: false,
             },
-            options: [2,3,4,5]
+            options: [2,3,4]
         }
     },
     methods: {
@@ -46,7 +49,6 @@ export default {
             this.$emit('info', this.item)
         },
         upd() {
-
             if(!!this.item.complexity && (this.item.answer.length !==0) ) {
               this.item.isFilled = true
             }
@@ -55,7 +57,9 @@ export default {
         }
     },
     mounted() {
-      this.item.startTime = Date.now()
-    }
+      this.item.startTime = Date.now();
+      this.item.index=0
+      this.$emit('info', this.item)
+    },
 }
 </script>

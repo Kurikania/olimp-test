@@ -1,10 +1,10 @@
 <template >
   <div class="contain">
     <div class="task display-column">
-      <h3>Задания <button @click="send">Отправить</button></h3>
+      <h3>Задания</h3>
       <p>
         Максимально быстро найдите ответ на вопрос и оцените сложность выполнения каждого задания. Пожалуйста не пользуйтесь поиском по странице. 
-        Уведомление: Поиск по странице отключен для чистоты эксперимента
+        <br> Уведомление: Поиск по странице отключен для чистоты эксперимента
       </p>
       <task-item
         @info="onInfo"
@@ -14,6 +14,7 @@
         :index="index"
       >
       </task-item>
+      <button @click="send">Закончить эксперимент</button>
     </div>
   </div>
 </template>
@@ -38,13 +39,19 @@ export default {
   props: ['userInfo', 'withTree'],
   methods: {
     send() {
-      console.log(this.form.some(a => a.isFilled == false))
+      console.log(" Is form ", this.form)
+      console.log(" Is not filled", this.form.filter(a => a.isFilled == false))
       console.log("this.userInfo",this.userInfo)
       if(this.form.some(a => a.isFilled == false)) {
         console.warn(" Is not filled",this.form.some(a => a.isFilled == false))
         alert("Пожалуйста, заполните все поля")
+        return
       }
-      console.log(process.env.VUE_APP_SERVER_URL);
+      if(!this.userInfo) {        
+        alert("Нет данных о пользователе, вернитесь на предыдущую страницу")
+        return
+      }
+     
       axios.post(`${process.env.VUE_APP_SERVER_URL}/api/post`, {questions: this.form, userInfo: this.userInfo, withTree: this.withTree}).then(() => {
         this.$router.replace({ path: "/finish" , params: { id: this.userInfo.id }});
       }).catch((err) => console.log(err));
@@ -68,6 +75,12 @@ export default {
     color: #6f47eb;
     box-sizing: border-box;
     border-radius: 4px;
+    font-weight: bold;
+      &:hover {        
+        color: #ffffff;
+        background-color: #6f47eb;
+      }
+      transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   .task {
     h3 {

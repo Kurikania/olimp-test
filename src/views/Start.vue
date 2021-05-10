@@ -74,20 +74,7 @@
           <label for="prof"> Специальность </label>
           <input v-model="userInfo.prof" type="text" name="prof" id="prof" />
         </div>
-        <div class="form__item">
-          <label for="computer-experience-years">
-            Сколько лет всего работаете за компьютером?
-          </label>
-          <input
-            v-model="userInfo.computerExperienceYears"
-            type="number"
-            name="computer-experience-years"
-            id="computer-experience-years"
-          />
-        </div>
-      </div>
 
-      <div class="form__group">
         <div class="form__item">
           <label for="computerLevel">
             Насколько продвинутым пользователем себя считаете ?
@@ -114,6 +101,9 @@
             </option>
           </select>
         </div>
+      </div>
+
+      <div class="form__group">
 
         <div class="form__item">
           <label for="programming">
@@ -169,7 +159,6 @@ export default {
         age: null,
         education: null,
         prof: null,
-        computerExperienceYears: null,
         computerLevel: null,
         progExperience: null,
         gamingExperience: null,
@@ -179,7 +168,7 @@ export default {
   methods: {
     start() {
       let userInfo = this.userInfo;
-      if(!userInfo.age || !userInfo.education || !userInfo.prof || !userInfo.computerExperienceYears || !userInfo.computerLevel ) {
+      if(!userInfo.age || !userInfo.education || !userInfo.prof  || !userInfo.computerLevel ) {
         alert("Пожалуйста, заполните все поля")
         return
       }
