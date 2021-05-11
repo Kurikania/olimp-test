@@ -14,7 +14,8 @@ Vue.use(VueScrollTo, {
 })
 // Vue.use(vueEditor);
 Vue.use(require('vue-shortkey'))
-
+Vue.use(require('vue-cookies'))
+Vue.$cookies.config('30d')
 
 Vue.config.productionTip = false
 

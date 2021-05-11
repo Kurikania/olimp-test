@@ -23,6 +23,7 @@
     "mongoose": "^5.12.3",
     "nodemon": "^2.0.7",
     "vue": "^2.6.11",
+    "vue-cookies": "^1.7.4",
     "vue-router": "^3.2.0",
     "vue-scrollto": "^2.20.0",
     "vue-shortkey": "^3.1.7",

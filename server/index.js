@@ -121,28 +121,34 @@ app.post("/api/new", async (req, res) => {
 
 app.post("/api/post", async (req, res) => {
   console.log(req.body.questions);
-  await Items.findByIdAndUpdate(req.body.userInfo.id, {
-    question1Answer: req.body.questions[0].answer,
-    question1Complexity: req.body.questions[0].complexity,
-    question1Time: req.body.questions[0].time,
-
-    question2Answer: req.body.questions[1].answer,
-    question2Complexity: req.body.questions[1].complexity,
-    question2Time: req.body.questions[1].time,
-
-    question3Answer: req.body.questions[2].answer,
-    question3Complexity: req.body.questions[2].complexity,
-    question3Time: req.body.questions[2].time,
-
-    question4Answer: req.body.questions[3].answer,
-    question4Complexity: req.body.questions[3].complexity,
-    question4Time: req.body.questions[3].time,
-
-    question5Answer: req.body.questions[4].answer,
-    question5Complexity: req.body.questions[4].complexity,
-    question5Time: req.body.questions[4].time,
-    withTree: req.body.withTree,
-  });
+  if(req.body.questions) {
+    await Items.findByIdAndUpdate(req.body.userInfo.id, {
+      question1Answer: req.body.questions[0].answer,
+      question1Complexity: req.body.questions[0].complexity,
+      question1Time: req.body.questions[0].time,
+      
+      question2Answer: req.body.questions[1].answer,
+      question2Complexity: req.body.questions[1].complexity,
+      question2Time: req.body.questions[1].time,
+      
+      question3Answer: req.body.questions[2].answer,
+      question3Complexity: req.body.questions[2].complexity,
+      question3Time: req.body.questions[2].time,
+      
+      question4Answer: req.body.questions[3].answer,
+      question4Complexity: req.body.questions[3].complexity,
+      question4Time: req.body.questions[3].time,
+      
+      question5Answer: req.body.questions[4].answer,
+      question5Complexity: req.body.questions[4].complexity,
+      question5Time: req.body.questions[4].time,
+      withTree: req.body.withTree,
+    });
+  } else {
+    await Items.findByIdAndUpdate(req.body.userInfo.id, {
+      withTree: req.body.withTree,
+    })
+  }
   res.send(req.body);
 });
 

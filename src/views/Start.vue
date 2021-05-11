@@ -71,10 +71,17 @@
         </div> 
 
         <div class="form__item">
-          <label for="prof"> Специальность </label>
+          <label for="prof"> Специальность 
+          </label>
           <input v-model="userInfo.prof" type="text" name="prof" id="prof" />
+          <div class="small">
+          *Укажите род деятельности, которым вы занимаетесь (планируете заниматься) профессионально. Если еще не определились — направление подготовки в университете
+          </div>
         </div>
 
+      </div>
+
+      <div class="form__group">
         <div class="form__item">
           <label for="computerLevel">
             Насколько продвинутым пользователем себя считаете ?
@@ -101,9 +108,6 @@
             </option>
           </select>
         </div>
-      </div>
-
-      <div class="form__group">
 
         <div class="form__item">
           <label for="programming">
@@ -185,11 +189,12 @@ export default {
             console.warn("DATA LENGTH", this.number)
             this.loading = false
             if (this.number % 2 == 0) {
-              this.$router.replace({ name: "Home", params: { userInfo } });
+               axios.post(`${process.env.VUE_APP_SERVER_URL}/api/post`, {userInfo: this.userInfo, withTree: true }).then(() => {
+                 this.$router.replace({ name: "Home", params: { userInfo } });
+               })
             } else {
-              this.$router.replace({
-                name: "Experiment2",
-                params: { userInfo },
+              axios.post(`${process.env.VUE_APP_SERVER_URL}/api/post`, {userInfo: this.userInfo, withTree: false }).then(() => {
+              this.$router.replace({ name: "Experiment2", params: { userInfo } });
               });
             }
           });
@@ -201,11 +206,8 @@ export default {
     },
   },
   mounted() {
-    // let number;
-    // Номер, чтобы определить на какой вариант эксперимента перенаправить
-    // axios
-    //   .get(`${process.env.VUE_APP_SERVER_URL}/api/data`)
-    //   .then((response) => (this.number = response.data.number));
+    let cookie = this.$cookies.get("tested_olimp");
+    if(cookie) this.$router.replace({ path: "/thanks" })
   },
 };
 </script>
@@ -216,6 +218,9 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  .small{
+    font-size: 0.85em;
+  }
   .form {
     padding: 0 15px;
     display: flex;

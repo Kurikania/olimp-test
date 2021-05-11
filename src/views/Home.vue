@@ -14,11 +14,12 @@
 или на стрелочку около названия.  </li>
 <li> При нажатии на точку в дереве журнал пролистывается к соответствующей записи. </li>
 </ul>
-Ваша задача — максимально быстро найти ответ на вопрос из поля с заданиями. 
-<strong>Не волнуйтесь, мы тестируем интерфейс, а не вас. </strong>
         </div>
     <div style="margin: auto; background-repeat: no-repeat;     background-size: contain; width: 100%; height:432px; background-image: url('/Instruktsia1.png')">
     <img src="url('/Instruktsia1.png')"  style="visibility : hidden;">
+    </div>
+    <div> 
+        <strong>Ваша задача — максимально быстро найти ответы на вопросы из поля с заданиями. Не волнуйтесь, мы тестируем интерфейс, а не вас. </strong>
     </div>
     <button style=" height: 24px;
     background: #ffffff;

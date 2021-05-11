@@ -60,6 +60,13 @@ export default {
       this.form[data.index] = data;
       console.log(data);
     },
+    async handler() {
+     await axios.post(`${process.env.VUE_APP_SERVER_URL}/api/post`, {userInfo: this.userInfo, withTree: this.withTree } )
+    },
+  },
+  created() {
+    document.addEventListener('beforeunload', this.handler);
+    this.$cookies.set('tested_olimp', true);
   },
 };
 </script>
