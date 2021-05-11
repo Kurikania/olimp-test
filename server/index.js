@@ -104,7 +104,7 @@ app.post("/api/new", async (req, res) => {
     userComputerExperienceYears: req.body.userInfo.computerExperienceYears,
     userProf: req.body.userInfo.prof,
     userProgExperience: req.body.userInfo.progExperience,
-    userGamingExperience: req.body.userInfo.gamingExperience,
+    userProgComment: req.body.userInfo.progComment,
   });
   try {
     let newRecord = null;
@@ -120,13 +120,8 @@ app.post("/api/new", async (req, res) => {
 });
 
 app.post("/api/post", async (req, res) => {
-  console.log(req.body.userInfo);
+  console.log(req.body.questions);
   await Items.findByIdAndUpdate(req.body.userInfo.id, {
-    // question1: req.body.questions[0],
-    // question2: req.body.questions[1],
-    // question3: req.body.questions[2],
-    // question4: req.body.questions[3],
-    // question5: req.body.questions[4],
     question1Answer: req.body.questions[0].answer,
     question1Complexity: req.body.questions[0].complexity,
     question1Time: req.body.questions[0].time,
@@ -154,7 +149,6 @@ app.post("/api/post", async (req, res) => {
 app.post("/api/comments", async (req, res) => {
   console.log(req.body);
   const record = new Comments({
-    complexity: req.body.complexity,
     comments: req.body.comments,
     improvments: req.body.improvments,
     userId: req.body.userId,
@@ -168,7 +162,6 @@ app.post("/api/comments", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
-  res.send(req.body);
 });
 
 app.get("/api/comments", async (req, res) => {
@@ -182,10 +175,10 @@ app.get("/api/comments", async (req, res) => {
   let file;
   try {
     const csv = json2csvParser.parse(...data);
-    file = fs.writeFile("public/data.csv", csv, "utf-8", function(err) {
+    file = fs.writeFile("public/comments.csv", csv, "utf-8", function(err) {
       if (err) throw err;
       console.log("file saved");
-      res.download("public/data.csv");
+      res.download("public/comments.csv");
     });
   } catch (err) {
     console.log(err);

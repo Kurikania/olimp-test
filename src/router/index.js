@@ -24,6 +24,7 @@ const routes = [
   {
     path: '/finish',
     name: 'Finish',
+    props: true,
     component: () => import(/* webpackChunkName: "Home" */ '../views/Finish.vue')
   }
 ]

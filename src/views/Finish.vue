@@ -2,8 +2,8 @@
   <div class="finish" style="height: 100vh">
     <div>
       <h4>
-        Спасибо за участие! Пожалуйста поделитесь ссылкой на этот эксперимент со
-        своими знакомыми. Получите плюсик к карме
+        Спасибо за уделенное время! Вы очень поможете если поделитесь ссылкой на
+        этот эксперимент со своими знакомыми
       </h4>
       <!-- <div class="form__item">
         Оцените, насколько сложно было выполнить поставленные задачи? (от 1 до
@@ -21,21 +21,13 @@
       <div class="form__item">
         Как вы считаете, как можно улучшить данный интерфейс? <br />
         <br />
-        <textarea
-          v-model="improvments"
-           cols="50"
-           rows="5"
-        />
+        <textarea v-model="improvments" cols="50" rows="5" />
       </div>
       <div class="form__item">
         Ваши комментарии о процессе проведения эксперимента, что было не
         понятно, не удобно, с какими сложностями столкнулись <br />
         <br />
-        <textarea
-          v-model="comments"        
-          cols="50"
-           rows="5"
-        />
+        <textarea v-model="comments" cols="50" rows="5" />
       </div>
     </div>
     <button @click="send">Отправить</button>
@@ -45,6 +37,7 @@
 <script>
 import axios from "axios";
 export default {
+  props: ["id"],
   data() {
     return {
       improvments: null,
@@ -54,6 +47,7 @@ export default {
   methods: {
     send() {
       let id = this.$attrs.id;
+      console.log(id);
       axios
         .post(`${process.env.VUE_APP_SERVER_URL}/api/comments`, {
           improvments: this.improvments,
@@ -88,7 +82,7 @@ export default {
   justify-content: center;
   font-weight: bold;
   .form__item {
-text-align: center;
+    text-align: center;
     padding-bottom: 30px;
     max-width: 400px;
     margin: auto;

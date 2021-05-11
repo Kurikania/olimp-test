@@ -45,7 +45,7 @@
             <option value="Студент">Студент</option>
             <option value="Бакалавр">Бакалавр</option>
             <option value="Магистрант">Магистрант</option>
-            <option value="агистр">Магистр</option>
+            <option value="Магистр">Магистр</option>
             <option value="Аспирант">Аспирант</option>
           </select>
            <br>
@@ -137,14 +137,15 @@
             В поле ниже можно оставить комментарий к последнему вопросу.
           </label>
         <textarea
-            v-model="userInfo.gamingExperience"         
+            v-model="userInfo.progComment"         
            cols="30"
            rows="4"
         />
         </div>
       </div>
     </div>
-    <button @click="start">Начать</button>
+    <button v-if="!loading" @click="start">Начать</button>
+    <button v-if="loading" disabled> Загрузка... </button>
   </div>
 </template>
 
@@ -155,13 +156,14 @@ export default {
     return {
       number: null,
       otherEducation: false,
+      loading: false,
       userInfo: {
         age: null,
         education: null,
         prof: null,
         computerLevel: null,
         progExperience: null,
-        gamingExperience: null,
+        progComment: null,
       },
     };
   },
@@ -172,6 +174,7 @@ export default {
         alert("Пожалуйста, заполните все поля")
         return
       }
+      this.loading = true
       axios
         .post(`${process.env.VUE_APP_SERVER_URL}/api/new`, {userInfo: userInfo })
         .then((response) => {
@@ -180,6 +183,7 @@ export default {
           axios.get(`${process.env.VUE_APP_SERVER_URL}/api/data`).then((res) => {
             this.number = res.data.number
             console.warn("DATA LENGTH", this.number)
+            this.loading = false
             if (this.number % 2 == 0) {
               this.$router.replace({ name: "Home", params: { userInfo } });
             } else {
@@ -190,7 +194,10 @@ export default {
             }
           });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          this.loading = true;
+          console.log(err);
+        } );
     },
   },
   mounted() {
