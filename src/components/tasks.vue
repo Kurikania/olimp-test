@@ -53,7 +53,7 @@ export default {
       }
      
       axios.post(`${process.env.VUE_APP_SERVER_URL}/api/post`, {questions: this.form, userInfo: this.userInfo, withTree: this.withTree}).then(() => {
-        this.$router.replace({ path: "/finish" , params: { id: this.userInfo.id }});
+        this.$router.replace({ path: "/finish" , params: { id: this.userInfo }});
       }).catch((err) => console.log(err));
     },
     onInfo(data) {
