@@ -32,7 +32,7 @@ const itemScema = new Schema(
     userComputerExperienceYears: String,
     userProf: String,
     userProgExperience: String,
-    userGamingExperience: String,
+    userProgComment: String,
     withTree: Boolean,
 
     question1Answer: String,
@@ -97,6 +97,7 @@ app.get("/api/exportData", async (req, res) => {
 });
 
 app.post("/api/new", async (req, res) => {
+  console.log(req.body.userInfo)
   const record = new Items({
     userAge: req.body.userInfo.age,
     userEducation: req.body.userInfo.education,

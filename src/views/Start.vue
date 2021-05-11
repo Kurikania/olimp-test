@@ -176,7 +176,7 @@ export default {
       }
       this.loading = true
       axios
-        .post(`${process.env.VUE_APP_SERVER_URL}/api/new`, {userInfo: userInfo })
+        .post(`${process.env.VUE_APP_SERVER_URL}/api/new`, {userInfo: this.userInfo })
         .then((response) => {
           userInfo.id = response.data.id
           // this.$router.replace({ path: "/finish" });
