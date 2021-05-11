@@ -59,8 +59,7 @@ const itemScema = new Schema(
 );
 
 const CommentScema = new Schema({
-  complexity: String,
-  userProf: String,
+  comments: String,
   improvments: String,
   userId: String,
 });
