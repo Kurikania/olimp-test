@@ -178,11 +178,13 @@ export default {
         alert("Пожалуйста, заполните все поля")
         return
       }
+      
       this.loading = true
       axios
         .post(`${process.env.VUE_APP_SERVER_URL}/api/new`, {userInfo: this.userInfo })
         .then((response) => {
           userInfo.id = response.data.id
+          localStorage.userInfo = JSON.stringify(this.userInfo);
           // this.$router.replace({ path: "/finish" });
           axios.get(`${process.env.VUE_APP_SERVER_URL}/api/data`).then((res) => {
             this.number = res.data.number

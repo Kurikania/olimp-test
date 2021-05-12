@@ -33,6 +33,7 @@ export default {
         "5. Сколько тем было затронуто в разделе конструирование?",
       ],
       form: [],
+      userInfoLocal: null
     };
   },
   components: { TaskItem },
@@ -42,17 +43,19 @@ export default {
       console.log(" Is form ", this.form)
       console.log(" Is not filled", this.form.filter(a => a.isFilled == false))
       console.log("this.userInfo",this.userInfo)
+      let user = this.userInfo
       if(this.form.some(a => a.isFilled == false)) {
         console.warn(" Is not filled",this.form.some(a => a.isFilled == false))
         alert("Пожалуйста, заполните все поля")
         return
       }
-      if(!this.userInfo) {        
+      if(!this.userInfo) user = JSON.parse(this.userInfoLocal);
+      if(!this.userInfo && !this.userInfoLocal) {        
         alert("Нет данных о пользователе, вернитесь на предыдущую страницу")
         return
       }
      
-      axios.post(`${process.env.VUE_APP_SERVER_URL}/api/post`, {questions: this.form, userInfo: this.userInfo, withTree: this.withTree}).then(() => {
+      axios.post(`${process.env.VUE_APP_SERVER_URL}/api/post`, {questions: this.form, userInfo: user, withTree: this.withTree}).then(() => {
         this.$router.replace({ path: "/finish" , params: { id: this.userInfo }});
       }).catch((err) => console.log(err));
     },
@@ -68,6 +71,11 @@ export default {
     document.addEventListener('beforeunload', this.handler);
     this.$cookies.set('tested_olimp', true);
   },
+  mounted() {
+        if (localStorage.userInfo) {
+      this.userInfoLocal = localStorage.userInfo;
+    }
+  }
 };
 </script>
 

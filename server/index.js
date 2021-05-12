@@ -5,9 +5,12 @@ const fs = require("fs");
 const fastcsv = require("fast-csv");
 const cors = require("cors");
 const path = require("path");
+const history = require('connect-history-api-fallback');
+const serveStatic = require('serve-static')
+app.use(history());
 app.use(cors());
 //app.use("../dist", express.static(__dirname + "/dist"));
-app.use(express.static(path.join(__dirname, "/../dist")));
+app.use(serveStatic(path.join(__dirname, "/../dist")));
 app.use(express.urlencoded());
 const { Parser } = require("json2csv");
 app.use(express.json());
