@@ -185,7 +185,10 @@ export default {
         .then((response) => {
           userInfo.id = response.data.id
           localStorage.userInfo = JSON.stringify(this.userInfo);
-          // this.$router.replace({ path: "/finish" });
+          // this.$router.replace({ path: "/finish" });   
+          // Если нет cookie о старом деревк
+          let cookieTree = this.$cookies.get("tree_olimp");
+          if(!cookieTree) {              
           axios.get(`${process.env.VUE_APP_SERVER_URL}/api/data`).then((res) => {
             this.number = res.data.number
             console.warn("DATA LENGTH", this.number)
@@ -200,11 +203,21 @@ export default {
               });
             }
           });
-        })
+        } else {
+          // если дерево есть 
+          if (cookieTree  == "with tree") {
+                 axios.post(`${process.env.VUE_APP_SERVER_URL}/api/post`, {userInfo: this.userInfo, withTree: true }).then(() => {
+                 this.$router.replace({ name: "Home", params: { userInfo } });
+               })
+            } else {
+              axios.post(`${process.env.VUE_APP_SERVER_URL}/api/post`, {userInfo: this.userInfo, withTree: false }).then(() => {
+              this.$router.replace({ name: "Experiment2", params: { userInfo } })});
+          }
+        }})
         .catch((err) => {
           this.loading = true;
           console.log(err);
-        } );
+        });
     },
   },
   mounted() {

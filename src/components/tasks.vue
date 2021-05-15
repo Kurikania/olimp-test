@@ -56,7 +56,8 @@ export default {
       }
      
       axios.post(`${process.env.VUE_APP_SERVER_URL}/api/post`, {questions: this.form, userInfo: user, withTree: this.withTree}).then(() => {
-        this.$router.replace({ path: "/finish" , params: { id: this.userInfo }});
+       this.$cookies.set('tested_olimp', true);
+       this.$router.replace({ path: "/finish" , params: { id: this.userInfo }});
       }).catch((err) => console.log(err));
     },
     onInfo(data) {
@@ -68,8 +69,9 @@ export default {
     },
   },
   created() {
-    document.addEventListener('beforeunload', this.handler);
-    this.$cookies.set('tested_olimp', true);
+    this.withTree == false ? this.$cookies.set('tree_olimp', "no tree"): this.$cookies.set('tree_olimp', "with tree");
+    
+    document.addEventListener('beforeunload', this.handler);  
   },
   mounted() {
         if (localStorage.userInfo) {
